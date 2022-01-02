@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[5],{"3XHS":function(n,e,t){"use strict";t.r(e);var i=t("q1tI"),o=t.n(i),s=t("Bl7J");e.default=function(){return o.a.createElement(s.a,null,o.a.createElement("p",null,"Is coding fun? Or rather should it be fun?"),o.a.createElement("p",null,"I think so! Visit the site for my quick insights on how to have fun coding, and impressions of interesting software."))}}}]);
+//# sourceMappingURL=component---src-pages-about-js-273b905ccef2309a8d5b.js.map
