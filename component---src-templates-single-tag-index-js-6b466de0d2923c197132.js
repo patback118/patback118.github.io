@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[12],{iQfj:function(a,e,t){"use strict";t.r(e);var n=t("q1tI"),o=t.n(n),c=t("Bl7J"),r=t("xw5c");e.default=function(a){a.data;var e=a.pageContext,t=e.posts,n=e.tagName,s="cv"!==n?"Posts about "+n:"Resume Work";return o.a.createElement(c.a,null,o.a.createElement("h1",null,s),o.a.createElement(r.a,{data:t,tagPageName:n}))}}}]);
+//# sourceMappingURL=component---src-templates-single-tag-index-js-6b466de0d2923c197132.js.map
