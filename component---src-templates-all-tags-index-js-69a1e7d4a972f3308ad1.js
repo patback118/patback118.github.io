@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[9],{YSlf:function(e,t,a){"use strict";a.r(t);var n=a("q1tI"),l=a.n(n),r=a("Wbzz"),u=a("7oih");t.default=function(e){e.data;var t=e.pageContext;return l.a.createElement(u.a,null,l.a.createElement("h3",null,"List of Tags"),l.a.createElement("ul",null,t.tags.map((function(e){var t="/tags/"+e;return l.a.createElement("li",{key:e},l.a.createElement(r.a,{to:t},e))}))))}}}]);
+//# sourceMappingURL=component---src-templates-all-tags-index-js-69a1e7d4a972f3308ad1.js.map
