@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[9],{YSlf:function(e,t,a){"use strict";a.r(t);var n=a("q1tI"),l=a.n(n),r=a("Wbzz"),c=a("7oih");t.default=e=>{let{data:t,pageContext:a}=e;return l.a.createElement(c.a,null,l.a.createElement("h3",null,"List of Tags"),l.a.createElement("ul",null,a.tags.map(e=>{const t="/tags/"+e;return l.a.createElement("li",{key:e},l.a.createElement(r.a,{to:t},e))})))}}}]);
+//# sourceMappingURL=component---src-templates-all-tags-index-js-12cf3b9cf9ab000296f5.js.map
