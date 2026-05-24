@@ -1,3 +1,3 @@
-:HL["https://patback118.github.io/_next/static/chunks/05c0dh2jxgfty.css","style"]
-:HL["https://patback118.github.io/_next/static/chunks/13wp18r1~19fr.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"cv","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"covid-data-gather-247wallst","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"IvXFiEq2VfBQHOlUjif1k"}
+:HL["/_next/static/chunks/05c0dh2jxgfty.css","style"]
+:HL["/_next/static/chunks/13wp18r1~19fr.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"cv","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"covid-data-gather-247wallst","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"jJBN2pXzyNMI5SxGrZVK0"}
