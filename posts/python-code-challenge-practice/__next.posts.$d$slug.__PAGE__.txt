@@ -1,0 +1,203 @@
+1:"$Sreact.fragment"
+2:I[7335,["/_next/static/chunks/0_~1k7uf_r3le.js","/_next/static/chunks/13wwynf001.56.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0eg54h34tff6y.js"],"default"]
+3:I[22016,["/_next/static/chunks/0_~1k7uf_r3le.js","/_next/static/chunks/13wwynf001.56.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0eg54h34tff6y.js"],""]
+4:I[46311,["/_next/static/chunks/0_~1k7uf_r3le.js","/_next/static/chunks/13wwynf001.56.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0eg54h34tff6y.js"],"default"]
+b:I[45508,["/_next/static/chunks/0_~1k7uf_r3le.js","/_next/static/chunks/13wwynf001.56.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0eg54h34tff6y.js"],"default"]
+3b:I[97367,["/_next/static/chunks/0_~1k7uf_r3le.js","/_next/static/chunks/13wwynf001.56.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
+3c:"$Sreact.suspense"
+:HL["/_next/static/chunks/13wp18r1~19fr.css","style"]
+5:T1d14,
+> Code challenges are a great way to level up your skills when learning a new programming language. I've been using Python more recently so I wanted to practice a bit as it's not my main language.
+
+This post will overview a quick code challenge I found on Code Wars, showing my solution as well as steps taken to learn how to write better Python code.
+
+## Using Code Wars
+
+You can use [Code Wars](https://www.codewars.com/), [Hacker Rank](https://www.hackerrank.com/), or any other challenge site to better yourself. Personally, I like Code Wars as the UI and site design feels like a game which makes it more engaging for me. At the end of the day it's the quality of the challenges that matter so I recommend both in that regard.
+
+### Choosing a Challenge - Duplicate Encoder
+
+The challenge I ended up going with is called [Duplicate Encoder](https://www.codewars.com/kata/54b42f9314d9229fd6000d9c) which has a difficulty rank of 6 kyu (with 1 being the hardest and 8 the easiest).
+
+For brevity, I'll include the challenge description below as an image.
+
+![](/images/posts/python-code-challenge-practice/code-wars-dupe-encode-desc.png)
+
+This problem is straightforward and looks like it can be solved by looping over the characters or using an array map. Then we'll want duplicate characters to return as ")" and non-duplicates to return as "(".
+
+### Note on Tests
+
+Before continuing, I want to make a quick note on a piece of the Code Wars UI that stands out. That is the "Sample Tests" section and the fact you can check your code against the tests. This forces all users of Code Wars to code from a [Test Driven Development](https://www.agilealliance.org/glossary/tdd/) perspective.
+
+![](/images/posts/python-code-challenge-practice/code-wars-sample-test-ui.png)
+
+While these tests are simple, it helps illustrate the beauty of a suite of simply written unit tests. Whether that's the expected output of a public class method or that of a simple function.
+
+## Solving the Challenge
+
+Below is my first take that managed to pass (comments added):
+
+```python
+def duplicate_encode(word):
+    i = 0
+    # Using a dict to check and store char pointer
+    char_and_pointer = {}
+    # Iterate over the string
+    for char in word:
+        # Avoiding case
+        char = char.lower()
+        # Checking if character exists in our dictionary
+        if char in char_and_pointer:
+            # A bit of a janky way to change characters in a string
+            word = word[:i] + ')' + word[i+1:]
+            if char_and_pointer[char] != 'repeat':
+                # Want to go back to the first time this character was found and replace
+                old_pointer = char_and_pointer[char]
+                word = word[:old_pointer] + ')' + word[old_pointer+1:]
+                # Set the pointer as 'repeat' so we now know going forward
+                char_and_pointer[char] = 'repeat'
+        else:
+            # If first time character has appeared, set accordingly
+            word = word[:i] + '(' + word[i+1:]
+            char_and_pointer[char] = i
+        i += 1
+    return word
+```
+
+This managed to solve the problem, but after hitting solve you're greeted with a variety of user submitted solutions ranked by whether they follow "Best Practices" or if it's "Clever".
+
+![](/images/posts/python-code-challenge-practice/code_war_sol_ex.png)
+
+## Learning from Others
+
+Typically the "Clever" answers are where you can learn the secret sauces of a programming language. As noted in the first answer in the above image, the user implements [Python list comprehension](https://www.geeksforgeeks.org/python-list-comprehension/) to achieve a one line answer. And by keeping this code [Pythonic](https://docs.python-guide.org/writing/style/), aka in line with the principles of the language, the Python compiler will typically prioritize the execution speed of the code.
+
+The second noted solution in the above image still uses list comprehension, but it implements [Python's Counter function](https://realpython.com/python-counter/). This creates a dictionary key for each letter in the string where the value is the count of that character. The user's code checks to see if the count of each character is 1 or not, and returns the proper parenthesis character. Not too much different than the other solution, but it shows off how useful [Python's standard library](https://docs.python.org/3/library/) can be.
+
+## Speed Tests and Refactoring
+
+Performance should always be an important consideration. While code challenge sites don't always factor in performance, it's a fun means to base further refactoring on.
+
+So using my solution and the top 2 solutions, I've gone ahead and created a small testing script to run locally.
+
+```python
+# Using timeit for speed tests
+import timeit
+
+# Using string 'Mississippi'
+print(timeit.timeit("duplicate_encode_mine('Mississippi')", setup="from __main__ import duplicate_encode", number=1000000))      
+print(timeit.timeit("duplicate_encode_sol1('Mississippi')", setup="from __main__ import duplicate_encode2", number=1000000))    
+print(timeit.timeit("duplicate_encode_sol2('Mississippi')", setup="from __main__ import duplicate_encode3", number=1000000))    
+```
+
+And the times are as follows:
+
+- **My solution**: 8.62 seconds
+- **User solution 1**: 4.67 seconds
+- **User solution 2**: 5.14 seconds
+
+*My solution is really slow! Lets see if we can fix this.*
+
+The thing that stands out most to me is the janky way I changed the characters in the string. I think it may be best to instead make the string a list and then join them before returning.
+
+I'm also thinking there's no need to run `str.lower()` on each character, and can instead run it once on the whole string.
+
+Finally, I want to move away from checking for the string 'repeat', and instead want to check if the value is a -1.
+
+```python
+def duplicate_encode(word):
+    # Using a dict to check if exists and store the first chars pointer
+    # Setting the characters as keys allows for an index like look up (O(1)) rather than a count()
+    char_pointers = {}
+    # Avoiding case
+    word = word.lower()
+    # List allows it to replace specific characters by index
+    word = list(word)
+    i = 0
+    for char in word:
+        if char in char_pointers:
+            word[i] = ')'
+            # Only need to replace a past char once
+            if char_pointers[char] != -1:
+                word[char_pointers[char]] = ')'
+                char_pointers[char] = -1
+        else:
+            word[i] = '('
+            char_pointers[char] = i
+        i += 1
+    return "".join(word)
+```
+
+
+And the new times are as follows (using 'Mississippi' as input string)
+
+- **My solution**: 3.24 seconds
+- **User solution 1**: 4.64 seconds
+- **User solution 2**: 5.41 seconds
+
+Nice! After refactoring we were able to make our function faster. I think we could go on and make the function read better, but it's nice to see that increase in speed after learning better ways to write Python!
+
+## Conclusion
+
+These challenges are great for both practice and learning. If you're a beginner, start slow and don't get discouraged. Use these challenges as a test and then learn from the solutions of your peers.
+
+That said, there are plenty of really tough challenges on these sites. No matter the skill level, I'm sure you'll learn something new!
+
+Please check out my Code Wars account here: [patback118](https://www.codewars.com/users/patback118)
+
+Happy coding!
+
+- Patrick0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"prose prose-img:rounded-xl prose-img:border prose-img:border-[var(--border)] dark:prose-invert max-w-none","children":[["$","header",null,{"className":"not-prose mb-8","children":["$undefined",["$","$L2",null,{}]," ",["$","h1",null,{"className":"text-4xl font-bold mb-2 tracking-tight","children":"Using Code Challenges to Sharpen Skills"}],["$","div",null,{"className":"flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-[var(--secondary-text)] font-mono","children":[["$","time",null,{"dateTime":"2022-06-05","children":"2022-06-05"}],["$","div",null,{"className":"flex flex-wrap gap-2","children":[["$","span",null,{"className":"opacity-40","children":"|"}],[["$","$L3","Python",{"href":"/tags/Python","className":"hover:text-[var(--text-color)] transition-colors before:content-['#'] before:opacity-50","children":"Python"}],["$","$L3","Code-challenge",{"href":"/tags/Code-challenge","className":"hover:text-[var(--text-color)] transition-colors before:content-['#'] before:opacity-50","children":"Code-challenge"}]]]}]]}]]}],["$","$L4",null,{"content":"$5"}],"$L6","$L7"]}],["$L8","$L9"],"$La"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"fxoZ9do0odHP2tGVFzaEx"}
+6:[["$","blockquote","blockquote-0",{"children":["\n",["$","p","p-0",{"children":"Code challenges are a great way to level up your skills when learning a new programming language. I've been using Python more recently so I wanted to practice a bit as it's not my main language."}],"\n"]}],"\n",["$","p","p-0",{"children":"This post will overview a quick code challenge I found on Code Wars, showing my solution as well as steps taken to learn how to write better Python code."}],"\n",["$","h2","h2-0",{"id":"using-code-wars","children":"Using Code Wars"}],"\n",["$","p","p-1",{"children":["You can use ",["$","a","a-0",{"href":"https://www.codewars.com/","children":"Code Wars"}],", ",["$","a","a-1",{"href":"https://www.hackerrank.com/","children":"Hacker Rank"}],", or any other challenge site to better yourself. Personally, I like Code Wars as the UI and site design feels like a game which makes it more engaging for me. At the end of the day it's the quality of the challenges that matter so I recommend both in that regard."]}],"\n",["$","h3","h3-0",{"id":"choosing-a-challenge---duplicate-encoder","children":"Choosing a Challenge - Duplicate Encoder"}],"\n",["$","p","p-2",{"children":["The challenge I ended up going with is called ",["$","a","a-0",{"href":"https://www.codewars.com/kata/54b42f9314d9229fd6000d9c","children":"Duplicate Encoder"}]," which has a difficulty rank of 6 kyu (with 1 being the hardest and 8 the easiest)."]}],"\n",["$","p","p-3",{"children":"For brevity, I'll include the challenge description below as an image."}],"\n",["$","p","p-4",{"children":["$","span","img-0",{"className":"block my-8","children":[["$","$Lb",null,{"src":"/images/posts/python-code-challenge-practice/code-wars-dupe-encode-desc.png","alt":"","width":800,"height":450,"style":{"width":"100%","height":"auto"},"className":"rounded-lg"}],""]}]}],"\n",["$","p","p-5",{"children":"This problem is straightforward and looks like it can be solved by looping over the characters or using an array map. Then we'll want duplicate characters to return as \")\" and non-duplicates to return as \"(\"."}],"\n",["$","h3","h3-1",{"id":"note-on-tests","children":"Note on Tests"}],"\n",["$","p","p-6",{"children":["Before continuing, I want to make a quick note on a piece of the Code Wars UI that stands out. That is the \"Sample Tests\" section and the fact you can check your code against the tests. This forces all users of Code Wars to code from a ",["$","a","a-0",{"href":"https://www.agilealliance.org/glossary/tdd/","children":"Test Driven Development"}]," perspective."]}],"\n",["$","p","p-7",{"children":["$","span","img-0",{"className":"block my-8","children":[["$","$Lb",null,{"src":"/images/posts/python-code-challenge-practice/code-wars-sample-test-ui.png","alt":"","width":800,"height":450,"style":{"width":"100%","height":"auto"},"className":"rounded-lg"}],""]}]}],"\n",["$","p","p-8",{"children":"While these tests are simple, it helps illustrate the beauty of a suite of simply written unit tests. Whether that's the expected output of a public class method or that of a simple function."}],"\n",["$","h2","h2-1",{"id":"solving-the-challenge","children":"Solving the Challenge"}],"\n",["$","p","p-9",{"children":"Below is my first take that managed to pass (comments added):"}],"\n",["$","pre","pre-0",{"children":["$","code","code-0",{"className":"hljs language-python","children":[["$","span","span-0",{"className":"hljs-keyword","children":"def"}]," ",["$","span","span-1",{"className":"hljs-title function_","children":"duplicate_encode"}],"(",["$","span","span-2",{"className":"hljs-params","children":"word"}],"):\n    i = ",["$","span","span-3",{"className":"hljs-number","children":"0"}],"\n    ",["$","span","span-4",{"className":"hljs-comment","children":"# Using a dict to check and store char pointer"}],"\n    char_and_pointer = {}\n    ",["$","span","span-5",{"className":"hljs-comment","children":"# Iterate over the string"}],"\n    ","$Lc"," char ","$Ld"," word:\n        ","$Le","\n        char = char.lower()\n        ","$Lf","\n        ","$L10"," char ","$L11"," char_and_pointer:\n            ","$L12","\n            word = word[:i] + ","$L13"," + word[i+","$L14",":]\n            ","$L15"," char_and_pointer[char] != ","$L16",":\n                ","$L17","\n                old_pointer = char_and_pointer[char]\n                word = word[:old_pointer] + ","$L18"," + word[old_pointer+","$L19",":]\n                ","$L1a","\n                char_and_pointer[char] = ","$L1b","\n        ","$L1c",":\n            ","$L1d","\n            word = word[:i] + ","$L1e"," + word[i+","$L1f",":]\n            char_and_pointer[char] = i\n        i += ","$L20","\n    ","$L21"," word\n"]}]}],"\n","$L22","\n","$L23","\n","$L24","\n","$L25","\n","$L26","\n","$L27","\n","$L28","\n","$L29","\n","$L2a","\n","$L2b","\n","$L2c","\n","$L2d","\n","$L2e","\n","$L2f","\n","$L30","\n","$L31","\n","$L32","\n","$L33","\n","$L34","\n","$L35","\n","$L36","\n","$L37","\n","$L38","\n","$L39","\n","$L3a"]
+7:["$","footer",null,{"children":["$","nav",null,{"className":"flex flex-col sm:flex-row justify-between gap-4 mt-16 pt-8 border-t border-[var(--border)]","children":[["$","$L3",null,{"href":"/posts/gatsby-site-on-gh-pages","className":"flex-1 group p-4 rounded-lg border border-[var(--border)] hover:bg-[var(--entry-bg)] transition-colors text-left","children":[["$","div",null,{"className":"flex items-center gap-2 text-xs uppercase tracking-widest text-[var(--secondary-text)] mb-2","children":[["$","svg",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","viewBox":"0 0 24 24","children":["$undefined",[["$","path","0",{"d":"M7.82843 10.9999H20V12.9999H7.82843L13.1924 18.3638L11.7782 19.778L4 11.9999L11.7782 4.22168L13.1924 5.63589L7.82843 10.9999Z","children":[]}]]],"style":{},"height":"1em","width":"1em","xmlns":"http://www.w3.org/2000/svg"}]," Previous"]}],["$","div",null,{"className":"font-bold group-hover:underline decoration-1 underline-offset-4","children":"Gatsby Site on Github Pages"}]]}],["$","$L3",null,{"href":"/posts/extreme-programming-most-and-least-used-practices","className":"flex-1 group p-4 rounded-lg border border-[var(--border)] hover:bg-[var(--entry-bg)] transition-colors text-right","children":[["$","div",null,{"className":"flex items-center gap-2 text-xs uppercase tracking-widest text-[var(--secondary-text)] mb-2 justify-end","children":["Next ",["$","svg",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","viewBox":"0 0 24 24","children":["$undefined",[["$","path","0",{"d":"M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z","children":[]}]]],"style":{},"height":"1em","width":"1em","xmlns":"http://www.w3.org/2000/svg"}]]}],["$","div",null,{"className":"font-bold group-hover:underline decoration-1 underline-offset-4","children":"Extreme Programming - Most and Least Used Practices"}]]}]]}]}]
+8:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/13wp18r1~19fr.css","precedence":"next"}]
+9:["$","script","script-0",{"src":"/_next/static/chunks/0eg54h34tff6y.js","async":true}]
+a:["$","$L3b",null,{"children":["$","$3c",null,{"name":"Next.MetadataOutlet","children":"$@3d"}]}]
+c:["$","span","span-6",{"className":"hljs-keyword","children":"for"}]
+d:["$","span","span-7",{"className":"hljs-keyword","children":"in"}]
+e:["$","span","span-8",{"className":"hljs-comment","children":"# Avoiding case"}]
+f:["$","span","span-9",{"className":"hljs-comment","children":"# Checking if character exists in our dictionary"}]
+10:["$","span","span-10",{"className":"hljs-keyword","children":"if"}]
+11:["$","span","span-11",{"className":"hljs-keyword","children":"in"}]
+12:["$","span","span-12",{"className":"hljs-comment","children":"# A bit of a janky way to change characters in a string"}]
+13:["$","span","span-13",{"className":"hljs-string","children":"')'"}]
+14:["$","span","span-14",{"className":"hljs-number","children":"1"}]
+15:["$","span","span-15",{"className":"hljs-keyword","children":"if"}]
+16:["$","span","span-16",{"className":"hljs-string","children":"'repeat'"}]
+17:["$","span","span-17",{"className":"hljs-comment","children":"# Want to go back to the first time this character was found and replace"}]
+18:["$","span","span-18",{"className":"hljs-string","children":"')'"}]
+19:["$","span","span-19",{"className":"hljs-number","children":"1"}]
+1a:["$","span","span-20",{"className":"hljs-comment","children":"# Set the pointer as 'repeat' so we now know going forward"}]
+1b:["$","span","span-21",{"className":"hljs-string","children":"'repeat'"}]
+1c:["$","span","span-22",{"className":"hljs-keyword","children":"else"}]
+1d:["$","span","span-23",{"className":"hljs-comment","children":"# If first time character has appeared, set accordingly"}]
+1e:["$","span","span-24",{"className":"hljs-string","children":"'('"}]
+1f:["$","span","span-25",{"className":"hljs-number","children":"1"}]
+20:["$","span","span-26",{"className":"hljs-number","children":"1"}]
+21:["$","span","span-27",{"className":"hljs-keyword","children":"return"}]
+22:["$","p","p-10",{"children":"This managed to solve the problem, but after hitting solve you're greeted with a variety of user submitted solutions ranked by whether they follow \"Best Practices\" or if it's \"Clever\"."}]
+23:["$","p","p-11",{"children":["$","span","img-0",{"className":"block my-8","children":[["$","$Lb",null,{"src":"/images/posts/python-code-challenge-practice/code_war_sol_ex.png","alt":"","width":800,"height":450,"style":{"width":"100%","height":"auto"},"className":"rounded-lg"}],""]}]}]
+24:["$","h2","h2-2",{"id":"learning-from-others","children":"Learning from Others"}]
+25:["$","p","p-12",{"children":["Typically the \"Clever\" answers are where you can learn the secret sauces of a programming language. As noted in the first answer in the above image, the user implements ",["$","a","a-0",{"href":"https://www.geeksforgeeks.org/python-list-comprehension/","children":"Python list comprehension"}]," to achieve a one line answer. And by keeping this code ",["$","a","a-1",{"href":"https://docs.python-guide.org/writing/style/","children":"Pythonic"}],", aka in line with the principles of the language, the Python compiler will typically prioritize the execution speed of the code."]}]
+26:["$","p","p-13",{"children":["The second noted solution in the above image still uses list comprehension, but it implements ",["$","a","a-0",{"href":"https://realpython.com/python-counter/","children":"Python's Counter function"}],". This creates a dictionary key for each letter in the string where the value is the count of that character. The user's code checks to see if the count of each character is 1 or not, and returns the proper parenthesis character. Not too much different than the other solution, but it shows off how useful ",["$","a","a-1",{"href":"https://docs.python.org/3/library/","children":"Python's standard library"}]," can be."]}]
+27:["$","h2","h2-3",{"id":"speed-tests-and-refactoring","children":"Speed Tests and Refactoring"}]
+28:["$","p","p-14",{"children":"Performance should always be an important consideration. While code challenge sites don't always factor in performance, it's a fun means to base further refactoring on."}]
+29:["$","p","p-15",{"children":"So using my solution and the top 2 solutions, I've gone ahead and created a small testing script to run locally."}]
+2a:["$","pre","pre-1",{"children":["$","code","code-0",{"className":"hljs language-python","children":[["$","span","span-0",{"className":"hljs-comment","children":"# Using timeit for speed tests"}],"\n",["$","span","span-1",{"className":"hljs-keyword","children":"import"}]," timeit\n\n",["$","span","span-2",{"className":"hljs-comment","children":"# Using string 'Mississippi'"}],"\n",["$","span","span-3",{"className":"hljs-built_in","children":"print"}],"(timeit.timeit(",["$","span","span-4",{"className":"hljs-string","children":"\"duplicate_encode_mine('Mississippi')\""}],", setup=",["$","span","span-5",{"className":"hljs-string","children":"\"from __main__ import duplicate_encode\""}],", number=",["$","span","span-6",{"className":"hljs-number","children":"1000000"}],"))      \n",["$","span","span-7",{"className":"hljs-built_in","children":"print"}],"(timeit.timeit(",["$","span","span-8",{"className":"hljs-string","children":"\"duplicate_encode_sol1('Mississippi')\""}],", setup=",["$","span","span-9",{"className":"hljs-string","children":"\"from __main__ import duplicate_encode2\""}],", number=",["$","span","span-10",{"className":"hljs-number","children":"1000000"}],"))    \n",["$","span","span-11",{"className":"hljs-built_in","children":"print"}],"(timeit.timeit(",["$","span","span-12",{"className":"hljs-string","children":"\"duplicate_encode_sol2('Mississippi')\""}],", setup=",["$","span","span-13",{"className":"hljs-string","children":"\"from __main__ import duplicate_encode3\""}],", number=",["$","span","span-14",{"className":"hljs-number","children":"1000000"}],"))    \n"]}]}]
+2b:["$","p","p-16",{"children":"And the times are as follows:"}]
+2c:["$","ul","ul-0",{"children":["\n",["$","li","li-0",{"children":[["$","strong","strong-0",{"children":"My solution"}],": 8.62 seconds"]}],"\n",["$","li","li-1",{"children":[["$","strong","strong-0",{"children":"User solution 1"}],": 4.67 seconds"]}],"\n",["$","li","li-2",{"children":[["$","strong","strong-0",{"children":"User solution 2"}],": 5.14 seconds"]}],"\n"]}]
+2d:["$","p","p-17",{"children":["$","em","em-0",{"children":"My solution is really slow! Lets see if we can fix this."}]}]
+2e:["$","p","p-18",{"children":"The thing that stands out most to me is the janky way I changed the characters in the string. I think it may be best to instead make the string a list and then join them before returning."}]
+2f:["$","p","p-19",{"children":["I'm also thinking there's no need to run ",["$","code","code-0",{"children":"str.lower()"}]," on each character, and can instead run it once on the whole string."]}]
+30:["$","p","p-20",{"children":"Finally, I want to move away from checking for the string 'repeat', and instead want to check if the value is a -1."}]
+31:["$","pre","pre-2",{"children":["$","code","code-0",{"className":"hljs language-python","children":[["$","span","span-0",{"className":"hljs-keyword","children":"def"}]," ",["$","span","span-1",{"className":"hljs-title function_","children":"duplicate_encode"}],"(",["$","span","span-2",{"className":"hljs-params","children":"word"}],"):\n    ",["$","span","span-3",{"className":"hljs-comment","children":"# Using a dict to check if exists and store the first chars pointer"}],"\n    ",["$","span","span-4",{"className":"hljs-comment","children":"# Setting the characters as keys allows for an index like look up (O(1)) rather than a count()"}],"\n    char_pointers = {}\n    ",["$","span","span-5",{"className":"hljs-comment","children":"# Avoiding case"}],"\n    word = word.lower()\n    ",["$","span","span-6",{"className":"hljs-comment","children":"# List allows it to replace specific characters by index"}],"\n    word = ",["$","span","span-7",{"className":"hljs-built_in","children":"list"}],"(word)\n    i = ",["$","span","span-8",{"className":"hljs-number","children":"0"}],"\n    ",["$","span","span-9",{"className":"hljs-keyword","children":"for"}]," char ",["$","span","span-10",{"className":"hljs-keyword","children":"in"}]," word:\n        ",["$","span","span-11",{"className":"hljs-keyword","children":"if"}]," char ",["$","span","span-12",{"className":"hljs-keyword","children":"in"}]," char_pointers:\n            word[i] = ",["$","span","span-13",{"className":"hljs-string","children":"')'"}],"\n            ",["$","span","span-14",{"className":"hljs-comment","children":"# Only need to replace a past char once"}],"\n            ",["$","span","span-15",{"className":"hljs-keyword","children":"if"}]," char_pointers[char] != -",["$","span","span-16",{"className":"hljs-number","children":"1"}],":\n                word[char_pointers[char]] = ",["$","span","span-17",{"className":"hljs-string","children":"')'"}],"\n                char_pointers[char] = -",["$","span","span-18",{"className":"hljs-number","children":"1"}],"\n        ",["$","span","span-19",{"className":"hljs-keyword","children":"else"}],":\n            word[i] = ",["$","span","span-20",{"className":"hljs-string","children":"'('"}],"\n            char_pointers[char] = i\n        i += ",["$","span","span-21",{"className":"hljs-number","children":"1"}],"\n    ",["$","span","span-22",{"className":"hljs-keyword","children":"return"}]," ",["$","span","span-23",{"className":"hljs-string","children":"\"\""}],".join(word)\n"]}]}]
+32:["$","p","p-21",{"children":"And the new times are as follows (using 'Mississippi' as input string)"}]
+33:["$","ul","ul-1",{"children":["\n",["$","li","li-0",{"children":[["$","strong","strong-0",{"children":"My solution"}],": 3.24 seconds"]}],"\n",["$","li","li-1",{"children":[["$","strong","strong-0",{"children":"User solution 1"}],": 4.64 seconds"]}],"\n",["$","li","li-2",{"children":[["$","strong","strong-0",{"children":"User solution 2"}],": 5.41 seconds"]}],"\n"]}]
+34:["$","p","p-22",{"children":"Nice! After refactoring we were able to make our function faster. I think we could go on and make the function read better, but it's nice to see that increase in speed after learning better ways to write Python!"}]
+35:["$","h2","h2-4",{"id":"conclusion","children":"Conclusion"}]
+36:["$","p","p-23",{"children":"These challenges are great for both practice and learning. If you're a beginner, start slow and don't get discouraged. Use these challenges as a test and then learn from the solutions of your peers."}]
+37:["$","p","p-24",{"children":"That said, there are plenty of really tough challenges on these sites. No matter the skill level, I'm sure you'll learn something new!"}]
+38:["$","p","p-25",{"children":["Please check out my Code Wars account here: ",["$","a","a-0",{"href":"https://www.codewars.com/users/patback118","children":"patback118"}]]}]
+39:["$","p","p-26",{"children":"Happy coding!"}]
+3a:["$","ul","ul-2",{"children":["\n",["$","li","li-0",{"children":"Patrick"}],"\n"]}]
+3d:null

@@ -1,0 +1,169 @@
+1:"$Sreact.fragment"
+2:I[45508,["/_next/static/chunks/0_~1k7uf_r3le.js","/_next/static/chunks/13wwynf001.56.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0eg54h34tff6y.js"],"default"]
+3:I[7335,["/_next/static/chunks/0_~1k7uf_r3le.js","/_next/static/chunks/13wwynf001.56.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0eg54h34tff6y.js"],"default"]
+4:I[22016,["/_next/static/chunks/0_~1k7uf_r3le.js","/_next/static/chunks/13wwynf001.56.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0eg54h34tff6y.js"],""]
+5:I[46311,["/_next/static/chunks/0_~1k7uf_r3le.js","/_next/static/chunks/13wwynf001.56.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0eg54h34tff6y.js"],"default"]
+33:I[97367,["/_next/static/chunks/0_~1k7uf_r3le.js","/_next/static/chunks/13wwynf001.56.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
+34:"$Sreact.suspense"
+:HL["/_next/static/chunks/13wp18r1~19fr.css","style"]
+6:T2565,
+I've recently been going through the textbook [*Engineering Software Products* by Ian Sommerville](https://www.amazon.com/Engineering-Software-Products-Ian-Sommerville/dp/013521064X) and was interested in Sommerville's take on the most and least followed practices of Extreme Programming.
+
+I want to list 10 Extreme Programming practices (fundamental ones as noted by Sommerville) here and give my take on them.
+
+## What is Extreme Programming
+
+XP (extreme programming) is a term coined by Kent Beck in 1998 to describe his new Agile project management methodology.
+
+Agile was created to move software development away from the more sequential approach of the waterfall model to a more iterative methodology. The Waterfall model worked well in the older aerospace, building, and military industries, but was tough to do with software.
+
+This is largely due to software's more dynamic nature. It's hard to predict every requirement prior to development, and without user feedback throughout the process you may ship a product that doesn't meet all the user's needs.
+
+Agile, a more iterative approach where features would be released every 2-4 weeks (a sprint) was the answer. Extreme programming wasn't like an extreme sport, rather the idea was to push the best practices of the time to "extreme" levels to make software development more efficient.
+
+## The 5 Most Widely Adopted
+
+According to Sommerville, these 5 are the most used XP practices.
+
+### Test-first Development
+
+Most developers will know this as TDD (test driven development). The goal is to write your tests before you write any code. When writing tests you provide an input (if needed) and expect an output.
+
+Sommerville states that these tests clarify the purpose of the code, and that all new code should not break anything that already exists.
+
+I agree with this and believe that the tests, if written concisely, can explain everything you need to know about the code. Well written code is easy to write tests for, so it forces developers to follow best practices.
+
+I often find myself writing the initial tests, but sometimes getting wrapped up in the development of the code and not writing the tests needed for full coverage. Luckily modern coverage checks exist but it is a good practice to write the tests so the next developer can more easily make changes.
+
+### Refactoring
+
+Sommerville explains that refactoring should be done as soon as improvements are found.
+
+Ideally this makes sense but other priorities exist throughout the sprint. Critical security vulnerabilities should be addressed ASAP, but for other refactors it's probably best to save them for a time when feature development has slowed down.
+
+### Incremental Planning
+
+These may also be known as User Stories and you'll generally find these within the Jira ticket you're working on.
+
+Sommerville mentions these are from customers and they are done by priority and time available. I completely agree that user stories are extremely valuable for communicating user needs to everyone including the developers.
+
+They typically follow this format in Scrum:
+
+> As a < type of user >, I want < some goal > so that < some reason >.
+
+### Continuous Integration
+
+The practice of Continuous Integration is one of the most adopted practices by a company looking to be Agile.
+
+Work is integrated to production when the task is complete. All tests should pass and the code should be reviewed.
+
+Modern CI/CD tools have allowed this process to be much easier than it was in the past.
+
+### Small Releases
+
+Small Releases are another core concept for all agile companies I've worked.
+
+The idea here is to release the MVP (minimally viable product) and then release frequent feature updates every sprint cycle (2-4 weeks).
+
+Small releases allow for faster feedback.
+
+## The 5 Least Adopted
+
+Sommerville notes that most companies don't follow one Agile methodology over another, but rather pick and choose from various methodologies (Scrum, XP, etc).
+
+In being picky, most companies are less inclined to do the following 5 practices (though I believe some are worth the effort).
+
+### Simple Design
+
+Simple design can also be summed up by the acronym YAGNI (you aren't gonna need it).
+
+Sommerville notes that according to XP, this means that developers should only code the requested features. His retort is that extra, potentially complex code is often necessary as users aren't fully aware of the system that powers the product.
+
+I agree that user stories alone don't guide technical choices, but I think the philosophy of simple design / YAGNI is one that influences all areas of software engineering. Whether its code, database, or architecture any means to simplify the design but keep the functionality will be appreciated by everyone on the team.
+
+### On-site customer
+
+This concept seems to be a product of it's time, where teams greatly benefited by having a customer / user on site to quickly provide feedback on new features.
+
+Sommerville claims this is time consuming and may not be worth the customers time.
+
+With the wide range of available tools to aid communication this should be less of an issue now. Being able to receive direct feedback via a Zoom call or async via a survey makes having an on site customer unnecessary. Not to mention the data gained from tracking user interactions can largely automate the feedback process. 
+
+### Sustainable pace
+
+When working sequentially (waterfall), the pace can be abysmal as hard deadlines approach and extra necessary work was not accounted for or addressed. This forces teams to work overtime to meet demands, and typically leads to burnout and turnover. XP's practice of a sustainable pace was created to allow developers to keep producing quality products without burnout.
+
+Sommerville states that the practice of sustainable pace is nice on paper, but most of the time it's tough to convince managers to adjust expectations. In my experience if this happens there could be a breakdown of communication happening between the team and management. Senior members should communicate during reviews and even daily standups to address any roadblocks to development and release.
+
+Sustainable pace is attainable if all team members truthfully work hard (during work hours) and communicate issues early to allow managers to adjust and compromise expectations throughout the sprint. Honest and thoughtful communication are key components to the Agile process, and the sprint reviews should show if the pace needs to be adjusted to maximize efficiency while avoiding burnout.
+
+### Pair programming
+
+Pair programming is when two developers work together to work on a feature or knowledge share to get both developers on the same page. Typically one developer will "drive" the code development, while the other observes and offers suggestions throughout. This is even easier now than ever with the co-development tools available.
+
+Sommerville mentions there isn't much evidence to suggest that pair programming is worth it, and that managers generally don't like the idea of two workers working on the same thing. Sommerville's take on this seems a bit rigit. I think that if used for the right circumstances pair programming can be valuable to team growth.
+
+Pair programming is great for knowledge sharing within and between teams. There are many setups for pair programming, one being a senior member showing a more junior member how to do something, or a specialist helping to describe a solution to a general team member, or just one developer who "gets" the work showing another developer how. I've had many eureka moments doing pair programming, and the knowledge gained is invaluable.
+
+That said, not every project needs to be paired, nor does the entirety of the feature development. It should be a tool to help a developer get past a road block and allow the team to fulfill the sprint goal.
+
+### Collective ownership
+
+It's amazing how this practice came to influence how we share source code in open source. It's a great concept whether within the team, an organization, or the open source community to allow more eyes on the code that in turn can help resolve issues or suggest code improvements.
+
+Sommerville mentions that this practice doesn't work for many developers as they may not want to share completed work. I can understand this as success metrics are necessary for individual growth within the company, but with modern code tracking its pretty simple to track via code blame.
+
+For me, collective ownership is a good thing as long as organizations track and recognize contributions of individuals as well as teams. I think for many organizations they should close source their code from the public, but leave it open to those within the organization to allow a greater understanding of the code. Code sharing and company wide code style guides can help streamline development.
+
+## Conclusion
+
+The creators of Extreme Programming believed that these practices were conceived as being holistic and essential. In an ideal situation they should be, and even if an organization or team may sometimes sway away from these ideals, they can always fall back on them throughout the sprint cycle.
+
+Sommerville concludes in mentioning that developers aren't managers, and that business needs can't be left to developers. I agree, but the opposite should be true as well. XP and other agile methodologies seek to give software engineers and the greater team a framework to present technical hurdles to stakeholders, while remaining professional and flexible throughout the process.
+
+-Patrick0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"prose prose-img:rounded-xl prose-img:border prose-img:border-[var(--border)] dark:prose-invert max-w-none","children":[["$","header",null,{"className":"not-prose mb-8","children":[["$","div",null,{"className":"relative w-full h-[300px] md:h-[400px] mb-8 rounded-lg overflow-hidden bg-[var(--entry-bg)]","children":["$","$L2",null,{"src":"images/posts/extreme-programming-most-and-least-used-practices/hero.png","alt":"Extreme Programming - Most and Least Used Practices","fill":true,"priority":true,"className":"object-cover transition-transform duration-500 hover:scale-102","sizes":"(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"}]}],["$","$L3",null,{}]," ",["$","h1",null,{"className":"text-4xl font-bold mb-2 tracking-tight","children":"Extreme Programming - Most and Least Used Practices"}],["$","div",null,{"className":"flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-[var(--secondary-text)] font-mono","children":[["$","time",null,{"dateTime":"2023-09-04","children":"2023-09-04"}],["$","div",null,{"className":"flex flex-wrap gap-2","children":[["$","span",null,{"className":"opacity-40","children":"|"}],[["$","$L4","Agile",{"href":"/tags/Agile","className":"hover:text-[var(--text-color)] transition-colors before:content-['#'] before:opacity-50","children":"Agile"}],["$","$L4","General",{"href":"/tags/General","className":"hover:text-[var(--text-color)] transition-colors before:content-['#'] before:opacity-50","children":"General"}],["$","$L4","Best Practices",{"href":"/tags/Best Practices","className":"hover:text-[var(--text-color)] transition-colors before:content-['#'] before:opacity-50","children":"Best Practices"}],["$","$L4","Software Engineering",{"href":"/tags/Software Engineering","className":"hover:text-[var(--text-color)] transition-colors before:content-['#'] before:opacity-50","children":"Software Engineering"}]]]}]]}]]}],["$","$L5",null,{"content":"$6"}],"$L7","$L8"]}],["$L9","$La"],"$Lb"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"fxoZ9do0odHP2tGVFzaEx"}
+7:[["$","p","p-0",{"children":["I've recently been going through the textbook ",["$","a","a-0",{"href":"https://www.amazon.com/Engineering-Software-Products-Ian-Sommerville/dp/013521064X","children":[["$","em","em-0",{"children":"Engineering Software Products"}]," by Ian Sommerville"]}]," and was interested in Sommerville's take on the most and least followed practices of Extreme Programming."]}],"\n",["$","p","p-1",{"children":"I want to list 10 Extreme Programming practices (fundamental ones as noted by Sommerville) here and give my take on them."}],"\n",["$","h2","h2-0",{"id":"what-is-extreme-programming","children":"What is Extreme Programming"}],"\n",["$","p","p-2",{"children":"XP (extreme programming) is a term coined by Kent Beck in 1998 to describe his new Agile project management methodology."}],"\n",["$","p","p-3",{"children":"Agile was created to move software development away from the more sequential approach of the waterfall model to a more iterative methodology. The Waterfall model worked well in the older aerospace, building, and military industries, but was tough to do with software."}],"\n",["$","p","p-4",{"children":"This is largely due to software's more dynamic nature. It's hard to predict every requirement prior to development, and without user feedback throughout the process you may ship a product that doesn't meet all the user's needs."}],"\n",["$","p","p-5",{"children":"Agile, a more iterative approach where features would be released every 2-4 weeks (a sprint) was the answer. Extreme programming wasn't like an extreme sport, rather the idea was to push the best practices of the time to \"extreme\" levels to make software development more efficient."}],"\n",["$","h2","h2-1",{"id":"the-5-most-widely-adopted","children":"The 5 Most Widely Adopted"}],"\n",["$","p","p-6",{"children":"According to Sommerville, these 5 are the most used XP practices."}],"\n",["$","h3","h3-0",{"id":"test-first-development","children":"Test-first Development"}],"\n",["$","p","p-7",{"children":"Most developers will know this as TDD (test driven development). The goal is to write your tests before you write any code. When writing tests you provide an input (if needed) and expect an output."}],"\n",["$","p","p-8",{"children":"Sommerville states that these tests clarify the purpose of the code, and that all new code should not break anything that already exists."}],"\n",["$","p","p-9",{"children":"I agree with this and believe that the tests, if written concisely, can explain everything you need to know about the code. Well written code is easy to write tests for, so it forces developers to follow best practices."}],"\n",["$","p","p-10",{"children":"I often find myself writing the initial tests, but sometimes getting wrapped up in the development of the code and not writing the tests needed for full coverage. Luckily modern coverage checks exist but it is a good practice to write the tests so the next developer can more easily make changes."}],"\n",["$","h3","h3-1",{"id":"refactoring","children":"Refactoring"}],"\n",["$","p","p-11",{"children":"Sommerville explains that refactoring should be done as soon as improvements are found."}],"\n",["$","p","p-12",{"children":"Ideally this makes sense but other priorities exist throughout the sprint. Critical security vulnerabilities should be addressed ASAP, but for other refactors it's probably best to save them for a time when feature development has slowed down."}],"\n",["$","h3","h3-2",{"id":"incremental-planning","children":"Incremental Planning"}],"\n",["$","p","p-13",{"children":"These may also be known as User Stories and you'll generally find these within the Jira ticket you're working on."}],"\n","$Lc","\n","$Ld","\n","$Le","\n","$Lf","\n","$L10","\n","$L11","\n","$L12","\n","$L13","\n","$L14","\n","$L15","\n","$L16","\n","$L17","\n","$L18","\n","$L19","\n","$L1a","\n","$L1b","\n","$L1c","\n","$L1d","\n","$L1e","\n","$L1f","\n","$L20","\n","$L21","\n","$L22","\n","$L23","\n","$L24","\n","$L25","\n","$L26","\n","$L27","\n","$L28","\n","$L29","\n","$L2a","\n","$L2b","\n","$L2c","\n","$L2d","\n","$L2e","\n","$L2f","\n","$L30","\n","$L31","\n","$L32"]
+8:["$","footer",null,{"children":["$","nav",null,{"className":"flex flex-col sm:flex-row justify-between gap-4 mt-16 pt-8 border-t border-[var(--border)]","children":[["$","$L4",null,{"href":"/posts/python-code-challenge-practice","className":"flex-1 group p-4 rounded-lg border border-[var(--border)] hover:bg-[var(--entry-bg)] transition-colors text-left","children":[["$","div",null,{"className":"flex items-center gap-2 text-xs uppercase tracking-widest text-[var(--secondary-text)] mb-2","children":[["$","svg",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","viewBox":"0 0 24 24","children":["$undefined",[["$","path","0",{"d":"M7.82843 10.9999H20V12.9999H7.82843L13.1924 18.3638L11.7782 19.778L4 11.9999L11.7782 4.22168L13.1924 5.63589L7.82843 10.9999Z","children":[]}]]],"style":{},"height":"1em","width":"1em","xmlns":"http://www.w3.org/2000/svg"}]," Previous"]}],["$","div",null,{"className":"font-bold group-hover:underline decoration-1 underline-offset-4","children":"Using Code Challenges to Sharpen Skills"}]]}],["$","div",null,{"className":"flex-1"}]]}]}]
+9:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/13wp18r1~19fr.css","precedence":"next"}]
+a:["$","script","script-0",{"src":"/_next/static/chunks/0eg54h34tff6y.js","async":true}]
+b:["$","$L33",null,{"children":["$","$34",null,{"name":"Next.MetadataOutlet","children":"$@35"}]}]
+c:["$","p","p-14",{"children":"Sommerville mentions these are from customers and they are done by priority and time available. I completely agree that user stories are extremely valuable for communicating user needs to everyone including the developers."}]
+d:["$","p","p-15",{"children":"They typically follow this format in Scrum:"}]
+e:["$","blockquote","blockquote-0",{"children":["\n",["$","p","p-0",{"children":"As a < type of user >, I want < some goal > so that < some reason >."}],"\n"]}]
+f:["$","h3","h3-3",{"id":"continuous-integration","children":"Continuous Integration"}]
+10:["$","p","p-16",{"children":"The practice of Continuous Integration is one of the most adopted practices by a company looking to be Agile."}]
+11:["$","p","p-17",{"children":"Work is integrated to production when the task is complete. All tests should pass and the code should be reviewed."}]
+12:["$","p","p-18",{"children":"Modern CI/CD tools have allowed this process to be much easier than it was in the past."}]
+13:["$","h3","h3-4",{"id":"small-releases","children":"Small Releases"}]
+14:["$","p","p-19",{"children":"Small Releases are another core concept for all agile companies I've worked."}]
+15:["$","p","p-20",{"children":"The idea here is to release the MVP (minimally viable product) and then release frequent feature updates every sprint cycle (2-4 weeks)."}]
+16:["$","p","p-21",{"children":"Small releases allow for faster feedback."}]
+17:["$","h2","h2-2",{"id":"the-5-least-adopted","children":"The 5 Least Adopted"}]
+18:["$","p","p-22",{"children":"Sommerville notes that most companies don't follow one Agile methodology over another, but rather pick and choose from various methodologies (Scrum, XP, etc)."}]
+19:["$","p","p-23",{"children":"In being picky, most companies are less inclined to do the following 5 practices (though I believe some are worth the effort)."}]
+1a:["$","h3","h3-5",{"id":"simple-design","children":"Simple Design"}]
+1b:["$","p","p-24",{"children":"Simple design can also be summed up by the acronym YAGNI (you aren't gonna need it)."}]
+1c:["$","p","p-25",{"children":"Sommerville notes that according to XP, this means that developers should only code the requested features. His retort is that extra, potentially complex code is often necessary as users aren't fully aware of the system that powers the product."}]
+1d:["$","p","p-26",{"children":"I agree that user stories alone don't guide technical choices, but I think the philosophy of simple design / YAGNI is one that influences all areas of software engineering. Whether its code, database, or architecture any means to simplify the design but keep the functionality will be appreciated by everyone on the team."}]
+1e:["$","h3","h3-6",{"id":"on-site-customer","children":"On-site customer"}]
+1f:["$","p","p-27",{"children":"This concept seems to be a product of it's time, where teams greatly benefited by having a customer / user on site to quickly provide feedback on new features."}]
+20:["$","p","p-28",{"children":"Sommerville claims this is time consuming and may not be worth the customers time."}]
+21:["$","p","p-29",{"children":"With the wide range of available tools to aid communication this should be less of an issue now. Being able to receive direct feedback via a Zoom call or async via a survey makes having an on site customer unnecessary. Not to mention the data gained from tracking user interactions can largely automate the feedback process."}]
+22:["$","h3","h3-7",{"id":"sustainable-pace","children":"Sustainable pace"}]
+23:["$","p","p-30",{"children":"When working sequentially (waterfall), the pace can be abysmal as hard deadlines approach and extra necessary work was not accounted for or addressed. This forces teams to work overtime to meet demands, and typically leads to burnout and turnover. XP's practice of a sustainable pace was created to allow developers to keep producing quality products without burnout."}]
+24:["$","p","p-31",{"children":"Sommerville states that the practice of sustainable pace is nice on paper, but most of the time it's tough to convince managers to adjust expectations. In my experience if this happens there could be a breakdown of communication happening between the team and management. Senior members should communicate during reviews and even daily standups to address any roadblocks to development and release."}]
+25:["$","p","p-32",{"children":"Sustainable pace is attainable if all team members truthfully work hard (during work hours) and communicate issues early to allow managers to adjust and compromise expectations throughout the sprint. Honest and thoughtful communication are key components to the Agile process, and the sprint reviews should show if the pace needs to be adjusted to maximize efficiency while avoiding burnout."}]
+26:["$","h3","h3-8",{"id":"pair-programming","children":"Pair programming"}]
+27:["$","p","p-33",{"children":"Pair programming is when two developers work together to work on a feature or knowledge share to get both developers on the same page. Typically one developer will \"drive\" the code development, while the other observes and offers suggestions throughout. This is even easier now than ever with the co-development tools available."}]
+28:["$","p","p-34",{"children":"Sommerville mentions there isn't much evidence to suggest that pair programming is worth it, and that managers generally don't like the idea of two workers working on the same thing. Sommerville's take on this seems a bit rigit. I think that if used for the right circumstances pair programming can be valuable to team growth."}]
+29:["$","p","p-35",{"children":"Pair programming is great for knowledge sharing within and between teams. There are many setups for pair programming, one being a senior member showing a more junior member how to do something, or a specialist helping to describe a solution to a general team member, or just one developer who \"gets\" the work showing another developer how. I've had many eureka moments doing pair programming, and the knowledge gained is invaluable."}]
+2a:["$","p","p-36",{"children":"That said, not every project needs to be paired, nor does the entirety of the feature development. It should be a tool to help a developer get past a road block and allow the team to fulfill the sprint goal."}]
+2b:["$","h3","h3-9",{"id":"collective-ownership","children":"Collective ownership"}]
+2c:["$","p","p-37",{"children":"It's amazing how this practice came to influence how we share source code in open source. It's a great concept whether within the team, an organization, or the open source community to allow more eyes on the code that in turn can help resolve issues or suggest code improvements."}]
+2d:["$","p","p-38",{"children":"Sommerville mentions that this practice doesn't work for many developers as they may not want to share completed work. I can understand this as success metrics are necessary for individual growth within the company, but with modern code tracking its pretty simple to track via code blame."}]
+2e:["$","p","p-39",{"children":"For me, collective ownership is a good thing as long as organizations track and recognize contributions of individuals as well as teams. I think for many organizations they should close source their code from the public, but leave it open to those within the organization to allow a greater understanding of the code. Code sharing and company wide code style guides can help streamline development."}]
+2f:["$","h2","h2-3",{"id":"conclusion","children":"Conclusion"}]
+30:["$","p","p-40",{"children":"The creators of Extreme Programming believed that these practices were conceived as being holistic and essential. In an ideal situation they should be, and even if an organization or team may sometimes sway away from these ideals, they can always fall back on them throughout the sprint cycle."}]
+31:["$","p","p-41",{"children":"Sommerville concludes in mentioning that developers aren't managers, and that business needs can't be left to developers. I agree, but the opposite should be true as well. XP and other agile methodologies seek to give software engineers and the greater team a framework to present technical hurdles to stakeholders, while remaining professional and flexible throughout the process."}]
+32:["$","p","p-42",{"children":"-Patrick"}]
+35:null
