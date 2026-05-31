@@ -1,25 +1,23 @@
 1:"$Sreact.fragment"
 2:I[63178,["/_next/static/chunks/0_~1k7uf_r3le.js","/_next/static/chunks/13wwynf001.56.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"ThemeProvider"]
-3:I[22016,["/_next/static/chunks/0_~1k7uf_r3le.js","/_next/static/chunks/13wwynf001.56.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0eg54h34tff6y.js"],""]
+3:I[22016,["/_next/static/chunks/0_~1k7uf_r3le.js","/_next/static/chunks/13wwynf001.56.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0227kmelu00l7.js","/_next/static/chunks/0_wplou14~1uv.js"],""]
 4:I[22530,["/_next/static/chunks/0_~1k7uf_r3le.js","/_next/static/chunks/13wwynf001.56.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"default"]
 5:I[39756,["/_next/static/chunks/0_~1k7uf_r3le.js","/_next/static/chunks/13wwynf001.56.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"default"]
 6:I[37457,["/_next/static/chunks/0_~1k7uf_r3le.js","/_next/static/chunks/13wwynf001.56.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"default"]
 8:I[97367,["/_next/static/chunks/0_~1k7uf_r3le.js","/_next/static/chunks/13wwynf001.56.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
 9:"$Sreact.suspense"
 c:I[97367,["/_next/static/chunks/0_~1k7uf_r3le.js","/_next/static/chunks/13wwynf001.56.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"ViewportBoundary"]
-f:I[68027,["/_next/static/chunks/0_~1k7uf_r3le.js","/_next/static/chunks/13wwynf001.56.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"default",1]
-:HL["/_next/static/chunks/05q11qb5s.hq8.css","style"]
-:HL["/_next/static/chunks/13wp18r1~19fr.css","style"]
-0:{"P":null,"c":["","posts","gatsby-site-on-gh-pages",""],"q":"","i":false,"f":[[["",{"children":["posts",{"children":[["slug","gatsby-site-on-gh-pages","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/05q11qb5s.hq8.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0_~1k7uf_r3le.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/13wwynf001.56.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/0d3shmwh5_nmn.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","suppressHydrationWarning":true,"children":["$","body",null,{"className":"antialiased min-h-screen bg-[var(--theme)] text-[var(--primary)]","children":["$","$L2",null,{"attribute":"class","defaultTheme":"system","enableSystem":true,"children":["$","div",null,{"className":"max-w-[800px] mx-auto px-6","children":[["$","header",null,{"className":"flex justify-between items-center py-8 flex-wrap gap-y-4","children":[["$","div",null,{"className":"flex items-center gap-4","children":[["$","$L3",null,{"href":"/","className":"text-2xl font-[900] tracking-tighter hover:opacity-70 transition-opacity","children":"// p log"}],["$","div",null,{"className":"flex items-center pt-1","children":["$","$L4",null,{}]}]]}],["$","nav",null,{"className":"flex items-center","children":["$","ul",null,{"className":"flex gap-6 list-none m-0 p-0","children":[["$","li",null,{"children":["$","$L3",null,{"href":"/posts","className":"font-semibold hover:opacity-70 transition-opacity","children":"Archive"}]}],["$","li",null,{"children":["$","$L3",null,{"href":"/cv","className":"font-semibold hover:opacity-70 transition-opacity","children":"CV"}]}],["$","li",null,{"children":["$","$L3",null,{"href":"/tags","className":"font-semibold hover:opacity-70 transition-opacity","children":"Tags"}]}],["$","li",null,{"children":["$","$L3",null,{"href":"/search","className":"font-semibold hover:opacity-70 transition-opacity","children":"Search"}]}]]}]}]]}],["$","main",null,{"className":"pb-12","style":{"paddingBottom":"20px"},"children":["$","$L5",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L6",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","footer",null,{"className":"py-8 border-t border-[var(--border)] text-center text-xs text-[var(--secondary)] font-mono","children":["© ",2026," Patrick · Fed with bread"]}]]}]}]}]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L6",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L6",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$L7",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/13wp18r1~19fr.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0eg54h34tff6y.js","async":true,"nonce":"$undefined"}]],["$","$L8",null,{"children":["$","$9",null,{"name":"Next.MetadataOutlet","children":"$@a"}]}]]}],{},null,false,null]},null,false,"$@b"]},null,false,"$@b"]},null,false,null],["$","$1","h",{"children":[null,["$","$Lc",null,{"children":"$Ld"}],["$","div",null,{"hidden":true,"children":"$Le"}],null]}],false]],"m":"$undefined","G":["$f",["$L10"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"V0CfyHW1xVxKwOeTPhAEP"}
-12:I[97367,["/_next/static/chunks/0_~1k7uf_r3le.js","/_next/static/chunks/13wwynf001.56.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"MetadataBoundary"]
-11:[]
-b:"$W11"
-e:["$","$L12",null,{"children":["$","$9",null,{"name":"Next.Metadata","children":"$L13"}]}]
-10:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/05q11qb5s.hq8.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
-14:I[45508,["/_next/static/chunks/0_~1k7uf_r3le.js","/_next/static/chunks/13wwynf001.56.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0eg54h34tff6y.js"],"default"]
-15:I[7335,["/_next/static/chunks/0_~1k7uf_r3le.js","/_next/static/chunks/13wwynf001.56.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0eg54h34tff6y.js"],"default"]
-16:I[46311,["/_next/static/chunks/0_~1k7uf_r3le.js","/_next/static/chunks/13wwynf001.56.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0eg54h34tff6y.js"],"default"]
-17:T17c6,
+e:I[97367,["/_next/static/chunks/0_~1k7uf_r3le.js","/_next/static/chunks/13wwynf001.56.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"MetadataBoundary"]
+10:I[68027,["/_next/static/chunks/0_~1k7uf_r3le.js","/_next/static/chunks/13wwynf001.56.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"default",1]
+:HL["/_next/static/chunks/07osym5werg72.css","style"]
+0:{"P":null,"c":["","posts","gatsby-site-on-gh-pages",""],"q":"","i":false,"f":[[["",{"children":["posts",{"children":[["slug","gatsby-site-on-gh-pages","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/07osym5werg72.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0_~1k7uf_r3le.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/13wwynf001.56.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/0d3shmwh5_nmn.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","suppressHydrationWarning":true,"children":["$","body",null,{"className":"antialiased min-h-screen bg-[var(--theme)] text-[var(--primary)]","children":["$","$L2",null,{"attribute":"class","defaultTheme":"system","enableSystem":true,"children":["$","div",null,{"className":"max-w-[800px] mx-auto px-6","children":[["$","header",null,{"className":"flex justify-between items-center py-8 flex-wrap gap-y-4","children":[["$","div",null,{"className":"flex items-center gap-4","children":[["$","$L3",null,{"href":"/","className":"text-2xl font-[900] tracking-tighter hover:opacity-70 transition-opacity","children":"// p log"}],["$","div",null,{"className":"flex items-center pt-1","children":["$","$L4",null,{}]}]]}],["$","nav",null,{"className":"flex items-center","children":["$","ul",null,{"className":"flex gap-6 list-none m-0 p-0","children":[["$","li",null,{"children":["$","$L3",null,{"href":"/posts","className":"font-semibold hover:opacity-70 transition-opacity","children":"Archive"}]}],["$","li",null,{"children":["$","$L3",null,{"href":"/cv","className":"font-semibold hover:opacity-70 transition-opacity","children":"CV"}]}],["$","li",null,{"children":["$","$L3",null,{"href":"/tags","className":"font-semibold hover:opacity-70 transition-opacity","children":"Tags"}]}],["$","li",null,{"children":["$","$L3",null,{"href":"/search","className":"font-semibold hover:opacity-70 transition-opacity","children":"Search"}]}]]}]}]]}],["$","main",null,{"className":"pb-12","style":{"paddingBottom":"20px"},"children":["$","$L5",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L6",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","footer",null,{"className":"py-8 border-t border-[var(--border)] text-center text-xs text-[var(--secondary)] font-mono","children":["© ",2026," Patrick · Fed with bread"]}]]}]}]}]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L6",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L6",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$L7",[["$","script","script-0",{"src":"/_next/static/chunks/0227kmelu00l7.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/0_wplou14~1uv.js","async":true,"nonce":"$undefined"}]],["$","$L8",null,{"children":["$","$9",null,{"name":"Next.MetadataOutlet","children":"$@a"}]}]]}],{},null,false,null]},null,false,"$@b"]},null,false,"$@b"]},null,false,null],["$","$1","h",{"children":[null,["$","$Lc",null,{"children":"$Ld"}],["$","div",null,{"hidden":true,"children":["$","$Le",null,{"children":["$","$9",null,{"name":"Next.Metadata","children":"$Lf"}]}]}],null]}],false]],"m":"$undefined","G":["$10",["$L11"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"8Jmpc-JrvQpl-aX-VGPzv"}
+12:[]
+b:"$W12"
+11:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/07osym5werg72.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+13:I[45508,["/_next/static/chunks/0_~1k7uf_r3le.js","/_next/static/chunks/13wwynf001.56.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0227kmelu00l7.js","/_next/static/chunks/0_wplou14~1uv.js"],"default"]
+14:I[7335,["/_next/static/chunks/0_~1k7uf_r3le.js","/_next/static/chunks/13wwynf001.56.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0227kmelu00l7.js","/_next/static/chunks/0_wplou14~1uv.js"],"default"]
+15:I[46311,["/_next/static/chunks/0_~1k7uf_r3le.js","/_next/static/chunks/13wwynf001.56.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0227kmelu00l7.js","/_next/static/chunks/0_wplou14~1uv.js"],"default"]
+16:T17c6,
 Prior to learning about Github Pages, I've always hosted my personal site on my own server instance. This started on a Host Gator shared instance and later on my Digital Ocean droplet.
 
 I eventually realized that the cost of these personal server instances weren't worth it for me anymore. I ran most of my personal scripts from my local PC and all other work related scripts were running from work servers. So it was time to shut them down.
@@ -167,45 +165,159 @@ I hope this setup works for your purposes and helps to get you started with Gats
 
 In some ways, this process mirrors what you may see in a CI/CD setup on something like Circle CI or Github Actions, but since this is for an individual it's nice to remove the unnecessary complexity and run the scripts from your local PC.
 
--Patrick7:["$","article",null,{"className":"prose prose-img:rounded-xl prose-img:border prose-img:border-[var(--border)] dark:prose-invert max-w-none","children":[["$","header",null,{"className":"not-prose mb-8","children":[["$","div",null,{"className":"relative w-full h-[300px] md:h-[400px] mb-8 rounded-lg overflow-hidden bg-[var(--entry-bg)]","children":["$","$L14",null,{"src":"images/posts/gatsby-site-on-gh-pages/gatsby-hero.png","alt":"Gatsby Site on Github Pages","fill":true,"priority":true,"className":"object-cover transition-transform duration-500 hover:scale-102","sizes":"(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"}]}],["$","$L15",null,{}]," ",["$","h1",null,{"className":"text-4xl font-bold mb-2 tracking-tight","children":"Gatsby Site on Github Pages"}],["$","div",null,{"className":"flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-[var(--secondary-text)] font-mono","children":[["$","time",null,{"dateTime":"2022-01-05","children":"2022-01-05"}],["$","div",null,{"className":"flex flex-wrap gap-2","children":[["$","span",null,{"className":"opacity-40","children":"|"}],[["$","$L3","Gatsby",{"href":"/tags/Gatsby","className":"hover:text-[var(--text-color)] transition-colors before:content-['#'] before:opacity-50","children":"Gatsby"}],["$","$L3","General",{"href":"/tags/General","className":"hover:text-[var(--text-color)] transition-colors before:content-['#'] before:opacity-50","children":"General"}],["$","$L3","Github-Pages",{"href":"/tags/Github-Pages","className":"hover:text-[var(--text-color)] transition-colors before:content-['#'] before:opacity-50","children":"Github-Pages"}],["$","$L3","Node-Js",{"href":"/tags/Node-Js","className":"hover:text-[var(--text-color)] transition-colors before:content-['#'] before:opacity-50","children":"Node-Js"}],["$","$L3","Bash",{"href":"/tags/Bash","className":"hover:text-[var(--text-color)] transition-colors before:content-['#'] before:opacity-50","children":"Bash"}]]]}]]}]]}],["$","$L16",null,{"content":"$17"}],"$L18","$L19"]}]
-18:[["$","p","p-0",{"children":"Prior to learning about Github Pages, I've always hosted my personal site on my own server instance. This started on a Host Gator shared instance and later on my Digital Ocean droplet."}],"\n",["$","p","p-1",{"children":"I eventually realized that the cost of these personal server instances weren't worth it for me anymore. I ran most of my personal scripts from my local PC and all other work related scripts were running from work servers. So it was time to shut them down."}],"\n",["$","p","p-2",{"children":"That said, I didn't want to lose the public presence of mine or my wife's personal sites."}],"\n",["$","h2","h2-0",{"id":"enter-github-pages","children":"Enter Github Pages"}],"\n",["$","p","p-3",{"children":["As of 2022, there are a number of places you can host a personal site for free. For my needs, I found ",["$","a","a-0",{"href":"https://pages.github.com/","children":"Github Pages"}]," to be the best fit."]}],"\n",["$","p","p-4",{"children":["Github Pages has a native integration with the static site generator ",["$","a","a-0",{"href":"https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll","children":"Jekyll"}],", but I wanted to use ",["$","a","a-1",{"href":"https://www.gatsbyjs.com/","children":"Gatsby JS"}]," due to it being built with Node JS and React."]}],"\n",["$","h2","h2-1",{"id":"finding-a-gatsby-theme","children":"Finding a Gatsby Theme"}],"\n",["$","p","p-5",{"children":["For my purposes, I just wanted a simple theme where I could post code related content. I ended up really liking this theme ",["$","a","a-0",{"href":"https://github.com/email2vimalraj/gatsby-starter-tech-blog","children":"Gatsby-Starter-Tech-Blog"}],". After cloning the theme to my local, I ran the following to get it setup for develop purposes from within the project folder."]}],"\n",["$","pre","pre-0",{"children":["$","code","code-0",{"className":"hljs language-bash","children":"npm install\ngatsby develop\n"}]}],"\n",["$","blockquote","blockquote-0",{"children":["\n",["$","p","p-0",{"children":["Note, I recommend setting the ",["$","code","code-0",{"children":"gatsby develop"}]," script as an npm run command in your package.json as well."]}],"\n"]}],"\n",["$","p","p-6",{"children":"After modifying the React components to my liking, (mainly adding personal links, etc) I then moved on to setting up a repo for my Github Pages site."}],"\n",["$","h2","h2-2",{"id":"setting-up-the-github-pages-repo","children":"Setting up the Github Pages repo"}],"\n",["$","p","p-7",{"children":["If you have a personal Github account, you're allowed to open a Pages site with the same name as your account. You can also use a custom domain, but for my case I was happy to have my account as ",["$","code","code-0",{"children":"username.github.io"}],"."]}],"\n",["$","p","p-8",{"children":["I recommend following along with the ",["$","a","a-0",{"href":"https://docs.github.com/en/pages/quickstart","children":"Quickstart guide"}]," to get setup, but the general idea is as follows:"]}],"\n",["$","ul","ul-0",{"children":["\n",["$","li","li-0",{"children":"Sign into your personal Github account."}],"\n",["$","li","li-1",{"children":["Create a repo in this fashion: ",["$","code","code-0",{"children":"username.github.io"}]]}],"\n",["$","li","li-2",{"children":["Create a branch called ",["$","code","code-0",{"children":"gh-pages"}]]}],"\n",["$","li","li-3",{"children":["Within the repo's settings go to the ",["$","em","em-0",{"children":"Pages"}]," tab"]}],"\n",["$","li","li-4",{"children":["Set the source branch to ",["$","code","code-0",{"children":"gh-pages"}]]}],"\n",["$","li","li-5",{"children":["Set the folder to ",["$","code","code-0",{"children":"(root)"}]]}],"\n",["$","li","li-6",{"children":["Be sure ",["$","code","code-0",{"children":"Enforce HTTPS"}]," is checked"]}],"\n"]}],"\n",["$","p","p-9",{"children":"At this point, your Github Pages repo is ready to go!"}],"\n","$L1a","\n","$L1b","\n","$L1c","\n","$L1d","\n","$L1e","\n","$L1f","\n","$L20","\n","$L21","\n","$L22","\n","$L23","\n","$L24","\n","$L25","\n","$L26","\n","$L27","\n","$L28","\n","$L29","\n","$L2a","\n","$L2b","\n","$L2c","\n","$L2d","\n","$L2e","\n","$L2f","\n","$L30","\n","$L31","\n","$L32","\n","$L33","\n","$L34","\n","$L35","\n","$L36","\n","$L37","\n","$L38","\n","$L39","\n","$L3a","\n","$L3b","\n","$L3c"]
-19:["$","footer",null,{"children":["$","nav",null,{"className":"flex flex-col sm:flex-row justify-between gap-4 mt-16 pt-8 border-t border-[var(--border)]","children":[["$","$L3",null,{"href":"/posts/hello-world","className":"flex-1 group p-4 rounded-lg border border-[var(--border)] hover:bg-[var(--entry-bg)] transition-colors text-left","children":[["$","div",null,{"className":"flex items-center gap-2 text-xs uppercase tracking-widest text-[var(--secondary-text)] mb-2","children":[["$","svg",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","viewBox":"0 0 24 24","children":["$undefined",[["$","path","0",{"d":"M7.82843 10.9999H20V12.9999H7.82843L13.1924 18.3638L11.7782 19.778L4 11.9999L11.7782 4.22168L13.1924 5.63589L7.82843 10.9999Z","children":[]}]]],"className":"$undefined","style":{"color":"$undefined"},"height":"1em","width":"1em","xmlns":"http://www.w3.org/2000/svg"}]," Previous"]}],["$","div",null,{"className":"font-bold group-hover:underline decoration-1 underline-offset-4","children":"New Site - Getting Started with Gatsby"}]]}],["$","$L3",null,{"href":"/posts/python-code-challenge-practice","className":"flex-1 group p-4 rounded-lg border border-[var(--border)] hover:bg-[var(--entry-bg)] transition-colors text-right","children":[["$","div",null,{"className":"flex items-center gap-2 text-xs uppercase tracking-widest text-[var(--secondary-text)] mb-2 justify-end","children":["Next ",["$","svg",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","viewBox":"0 0 24 24","children":["$undefined",[["$","path","0",{"d":"M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z","children":[]}]]],"className":"$undefined","style":{"color":"$undefined"},"height":"1em","width":"1em","xmlns":"http://www.w3.org/2000/svg"}]]}],["$","div",null,{"className":"font-bold group-hover:underline decoration-1 underline-offset-4","children":"Using Code Challenges to Sharpen Skills"}]]}]]}]}]
-1a:["$","h2","h2-3",{"id":"defining-a-backend-in-a-static-site","children":"Defining a backend in a static site"}]
-1b:["$","p","p-10",{"children":"As a long time Wordpress user, the typical setup I'm fond of is one where the CMS (drafts, hidden content, code) lives separately from the public site."}]
-1c:["$","p","p-11",{"children":"This separation of concerns makes it easier to track changes between what was done in the Node / React code and what is compiled to the front end as static HTML / CSS / JS."}]
-1d:["$","p","p-12",{"children":["For my case I like to set up a private repo where the uncompiled Gatsby JS code lives, that will compile on my local PC and push the static ",["$","code","code-0",{"children":"public"}]," content to my Github Pages repo."]}]
-1e:["$","p","p-13",{"children":"To do so, I open a new private repo and clone it onto my local. I add the initial commit of the Gatsby theme from earlier and push that to the new private repo. Now all changes done to the content and code here are tracked in that private repo."}]
-1f:["$","h2","h2-4",{"id":"structuring-your-public-and-private-repos","children":"Structuring your public and private repos"}]
-20:["$","p","p-14",{"children":"The next step is on the command line from within your local Gatsby private repo's directory."}]
-21:["$","p","p-15",{"children":"Do a git clone of your Github pages repo from within your local Gatsby directory like so:"}]
-22:["$","pre","pre-1",{"children":["$","code","code-0",{"className":"hljs language-bash","children":["git ",["$","span","span-0",{"className":"hljs-built_in","children":"clone"}]," git@github.com:username/username.github.io.git\n"]}]}]
-23:["$","p","p-16",{"children":"This will make your local private repos directory look like so:"}]
-24:["$","pre","pre-2",{"children":["$","code","code-0",{"className":"hljs language-bash","children":"- node_modules/\n- public/\n- src/\n- username.github.io/\n- .gitignore\n- gatsby-config.js\n- gatsby-node.js\n- package-lock.json\n- package.json\n- README.md\n"}]}]
-25:["$","p","p-17",{"children":["$","em","em-0",{"children":"Note, your directory may not be exactly as shown above"}]}]
-26:["$","p","p-18",{"children":["Next you'll want to go into your ",["$","code","code-0",{"children":".gitignore"}]," file and set the following rule:"]}]
-27:["$","pre","pre-3",{"children":["$","code","code-0",{"className":"hljs language-bash","children":"username.github.io/\n"}]}]
-28:["$","p","p-19",{"children":"This prevents your private Git repo from tracking the public site as well."}]
-29:["$","h2","h2-5",{"id":"installing-gh-pages-node-package","children":"Installing gh-pages node package"}]
-2a:["$","p","p-20",{"children":["Now from within your private repo, change directories to your public repo and install the npm package ",["$","code","code-0",{"children":"gh-pages"}],". Here's are the commands:"]}]
-2b:["$","pre","pre-4",{"children":["$","code","code-0",{"className":"hljs language-bash","children":[["$","span","span-0",{"className":"hljs-built_in","children":"cd"}]," username.github.io\nnpm i gh-pages\n"]}]}]
-2c:["$","p","p-21",{"children":"For easy run purposes, define the following in the new package.json file in your public Github pages repo:"}]
-2d:["$","pre","pre-5",{"children":["$","code","code-0",{"className":"hljs language-bash","children":[["$","span","span-0",{"className":"hljs-string","children":"\"scripts\""}],": {\n    ",["$","span","span-1",{"className":"hljs-string","children":"\"deploy-ghp\""}],": ",["$","span","span-2",{"className":"hljs-string","children":"\"gh-pages -d public\""}],"\n}\n"]}]}]
-2e:["$","p","p-22",{"children":"Now change directories back to your private repo with a quick"}]
-2f:["$","pre","pre-6",{"children":["$","code","code-0",{"className":"hljs language-bash","children":[["$","span","span-0",{"className":"hljs-built_in","children":"cd"}]," ..\n"]}]}]
-30:["$","h2","h2-6",{"id":"pushing-content-to-your-public-gh-pages","children":"Pushing content to your public GH pages"}]
-31:["$","p","p-23",{"children":"It's finally time to go live!"}]
-32:["$","p","p-24",{"children":"This part will play out as follows:"}]
-33:["$","ul","ul-1",{"children":["\n",["$","li","li-0",{"children":"Remove the public/ folders that may exist in the both the local private repo and public repo directory"}],"\n",["$","li","li-1",{"children":["Build the public theme with ",["$","code","code-0",{"children":"gatsby build"}]]}],"\n",["$","li","li-2",{"children":"Copy the new public/ folder to the local public repo"}],"\n",["$","li","li-3",{"children":["Run ",["$","code","code-0",{"children":"gh-pages"}]," from within the local public repo which will send the static site to your ",["$","code","code-1",{"children":"gh-pages"}]," branch"]}],"\n"]}]
-34:["$","p","p-25",{"children":["If you've been following along up to this point, the following npm run script can be set in your package.json (within the private repo) to build and send to your Github Pages site (be sure to replace ",["$","em","em-0",{"children":"username"}]," with your Github username):"]}]
-35:["$","pre","pre-7",{"children":["$","code","code-0",{"className":"hljs language-bash","children":[["$","span","span-0",{"className":"hljs-string","children":"\"ghp-build\""}],": ",["$","span","span-1",{"className":"hljs-string","children":"\"rm -rf public/ && rm -rf username.github.io/public/ && gatsby build && cp -r public/ username.github.io && cd username.github.io && npm run deploy-ghp\""}],"\n"]}]}]
-36:["$","p","p-26",{"children":"If all the steps work, you should see your command line output with something like so:"}]
-37:["$","pre","pre-8",{"children":["$","code","code-0",{"className":"hljs language-bash","children":["success onPostBuild - 0.074s\ninfo Done building ",["$","span","span-0",{"className":"hljs-keyword","children":"in"}]," 20.410260638 sec\n\n\n> @ deploy-ghp /home/user/site-private-repo/username.github.io\n> gh-pages -d public\n\nPublished\n"]}]}]
-38:["$","p","p-27",{"children":["$","em","em-0",{"children":"Note, errors may occur during the build or gh-pages push, so be sure to run the commands separately to properly debug using the command line output"}]}]
-39:["$","h2","h2-7",{"id":"conclusion","children":"Conclusion"}]
-3a:["$","p","p-28",{"children":"I hope this setup works for your purposes and helps to get you started with Gatsby and Github Pages."}]
-3b:["$","p","p-29",{"children":"In some ways, this process mirrors what you may see in a CI/CD setup on something like Circle CI or Github Actions, but since this is for an individual it's nice to remove the unnecessary complexity and run the scripts from your local PC."}]
-3c:["$","p","p-30",{"children":"-Patrick"}]
+-Patrick7:["$","article",null,{"className":"prose prose-img:rounded-xl prose-img:border prose-img:border-[var(--border)] dark:prose-invert max-w-none","children":[["$","header",null,{"className":"not-prose mb-8","children":[["$","div",null,{"className":"relative w-full h-[300px] md:h-[400px] mb-8 rounded-lg overflow-hidden bg-[var(--entry-bg)]","children":["$","$L13",null,{"src":"images/posts/gatsby-site-on-gh-pages/gatsby-hero.png","alt":"Gatsby Site on Github Pages","fill":true,"priority":true,"className":"object-cover transition-transform duration-500 hover:scale-102","sizes":"(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"}]}],["$","$L14",null,{}],["$","h1",null,{"className":"text-4xl font-bold mb-2 tracking-tight","children":"Gatsby Site on Github Pages"}],["$","div",null,{"className":"flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-[var(--secondary-text)] font-mono","children":[["$","time",null,{"dateTime":"2022-01-05","children":"2022-01-05"}],["$","div",null,{"className":"flex flex-wrap gap-2","children":[["$","span",null,{"className":"opacity-40","children":"|"}],[["$","$L3","Gatsby",{"href":"/tags/Gatsby","className":"hover:text-[var(--text-color)] transition-colors before:content-['#'] before:opacity-50","children":"Gatsby"}],["$","$L3","General",{"href":"/tags/General","className":"hover:text-[var(--text-color)] transition-colors before:content-['#'] before:opacity-50","children":"General"}],["$","$L3","Github-Pages",{"href":"/tags/Github-Pages","className":"hover:text-[var(--text-color)] transition-colors before:content-['#'] before:opacity-50","children":"Github-Pages"}],["$","$L3","Node-Js",{"href":"/tags/Node-Js","className":"hover:text-[var(--text-color)] transition-colors before:content-['#'] before:opacity-50","children":"Node-Js"}],["$","$L3","Bash",{"href":"/tags/Bash","className":"hover:text-[var(--text-color)] transition-colors before:content-['#'] before:opacity-50","children":"Bash"}]]]}]]}]]}],["$","$L15",null,{"content":"$16"}],"$L17","$L18"]}]
+19:I[9308,["/_next/static/chunks/0_~1k7uf_r3le.js","/_next/static/chunks/13wwynf001.56.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0227kmelu00l7.js","/_next/static/chunks/0_wplou14~1uv.js"],"default"]
+1a:T17c6,
+Prior to learning about Github Pages, I've always hosted my personal site on my own server instance. This started on a Host Gator shared instance and later on my Digital Ocean droplet.
+
+I eventually realized that the cost of these personal server instances weren't worth it for me anymore. I ran most of my personal scripts from my local PC and all other work related scripts were running from work servers. So it was time to shut them down.
+
+That said, I didn't want to lose the public presence of mine or my wife's personal sites.
+
+## Enter Github Pages
+
+As of 2022, there are a number of places you can host a personal site for free. For my needs, I found [Github Pages](https://pages.github.com/) to be the best fit.
+
+Github Pages has a native integration with the static site generator [Jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll), but I wanted to use [Gatsby JS](https://www.gatsbyjs.com/) due to it being built with Node JS and React.
+
+## Finding a Gatsby Theme
+
+For my purposes, I just wanted a simple theme where I could post code related content. I ended up really liking this theme [Gatsby-Starter-Tech-Blog](https://github.com/email2vimalraj/gatsby-starter-tech-blog). After cloning the theme to my local, I ran the following to get it setup for develop purposes from within the project folder.
+
+```bash
+npm install
+gatsby develop
+```
+
+> Note, I recommend setting the `gatsby develop` script as an npm run command in your package.json as well.
+
+After modifying the React components to my liking, (mainly adding personal links, etc) I then moved on to setting up a repo for my Github Pages site.
+
+## Setting up the Github Pages repo
+
+If you have a personal Github account, you're allowed to open a Pages site with the same name as your account. You can also use a custom domain, but for my case I was happy to have my account as `username.github.io`.
+
+I recommend following along with the [Quickstart guide](https://docs.github.com/en/pages/quickstart) to get setup, but the general idea is as follows:
+
+- Sign into your personal Github account.
+- Create a repo in this fashion: `username.github.io`
+- Create a branch called `gh-pages`
+- Within the repo's settings go to the *Pages* tab
+- Set the source branch to `gh-pages`
+- Set the folder to `(root)`
+- Be sure `Enforce HTTPS` is checked
+
+At this point, your Github Pages repo is ready to go!
+
+## Defining a backend in a static site
+
+As a long time Wordpress user, the typical setup I'm fond of is one where the CMS (drafts, hidden content, code) lives separately from the public site.
+
+This separation of concerns makes it easier to track changes between what was done in the Node / React code and what is compiled to the front end as static HTML / CSS / JS.
+
+For my case I like to set up a private repo where the uncompiled Gatsby JS code lives, that will compile on my local PC and push the static `public` content to my Github Pages repo.
+
+To do so, I open a new private repo and clone it onto my local. I add the initial commit of the Gatsby theme from earlier and push that to the new private repo. Now all changes done to the content and code here are tracked in that private repo.
+
+## Structuring your public and private repos
+
+The next step is on the command line from within your local Gatsby private repo's directory.
+
+Do a git clone of your Github pages repo from within your local Gatsby directory like so:
+
+```bash
+git clone git@github.com:username/username.github.io.git
+```
+
+This will make your local private repos directory look like so:
+
+```bash
+- node_modules/
+- public/
+- src/
+- username.github.io/
+- .gitignore
+- gatsby-config.js
+- gatsby-node.js
+- package-lock.json
+- package.json
+- README.md
+```
+
+*Note, your directory may not be exactly as shown above*
+
+Next you'll want to go into your `.gitignore` file and set the following rule:
+
+```bash
+username.github.io/
+```
+
+This prevents your private Git repo from tracking the public site as well.
+
+## Installing gh-pages node package
+
+Now from within your private repo, change directories to your public repo and install the npm package `gh-pages`. Here's are the commands:
+
+```bash
+cd username.github.io
+npm i gh-pages
+```
+
+For easy run purposes, define the following in the new package.json file in your public Github pages repo:
+
+```bash
+"scripts": {
+    "deploy-ghp": "gh-pages -d public"
+}
+```
+
+Now change directories back to your private repo with a quick 
+
+```bash
+cd ..
+```
+
+## Pushing content to your public GH pages
+
+It's finally time to go live!
+
+This part will play out as follows:
+
+- Remove the public/ folders that may exist in the both the local private repo and public repo directory
+- Build the public theme with `gatsby build`
+- Copy the new public/ folder to the local public repo
+- Run `gh-pages` from within the local public repo which will send the static site to your `gh-pages` branch
+
+If you've been following along up to this point, the following npm run script can be set in your package.json (within the private repo) to build and send to your Github Pages site (be sure to replace *username* with your Github username):
+
+```bash
+"ghp-build": "rm -rf public/ && rm -rf username.github.io/public/ && gatsby build && cp -r public/ username.github.io && cd username.github.io && npm run deploy-ghp"
+```
+
+If all the steps work, you should see your command line output with something like so:
+
+```bash
+success onPostBuild - 0.074s
+info Done building in 20.410260638 sec
+
+
+> @ deploy-ghp /home/user/site-private-repo/username.github.io
+> gh-pages -d public
+
+Published
+```
+
+*Note, errors may occur during the build or gh-pages push, so be sure to run the commands separately to properly debug using the command line output*
+
+## Conclusion
+
+I hope this setup works for your purposes and helps to get you started with Gatsby and Github Pages.
+
+In some ways, this process mirrors what you may see in a CI/CD setup on something like Circle CI or Github Actions, but since this is for an individual it's nice to remove the unnecessary complexity and run the scripts from your local PC.
+
+-Patrick17:["$","$L19",null,{"content":"$1a"}]
+18:["$","footer",null,{"children":["$","nav",null,{"className":"flex flex-col sm:flex-row justify-between gap-4 mt-16 pt-8 border-t border-[var(--border)]","children":[["$","$L3",null,{"href":"/posts/hello-world","className":"flex-1 group p-4 rounded-lg border border-[var(--border)] hover:bg-[var(--entry-bg)] transition-colors text-left","children":[["$","div",null,{"className":"flex items-center gap-2 text-xs uppercase tracking-widest text-[var(--secondary-text)] mb-2","children":[["$","svg",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","viewBox":"0 0 24 24","children":["$undefined",[["$","path","0",{"d":"M7.82843 10.9999H20V12.9999H7.82843L13.1924 18.3638L11.7782 19.778L4 11.9999L11.7782 4.22168L13.1924 5.63589L7.82843 10.9999Z","children":[]}]]],"className":"$undefined","style":{"color":"$undefined"},"height":"1em","width":"1em","xmlns":"http://www.w3.org/2000/svg"}]," Previous"]}],["$","div",null,{"className":"font-bold group-hover:underline decoration-1 underline-offset-4","children":"New Site - Getting Started with Gatsby"}]]}],["$","$L3",null,{"href":"/posts/python-code-challenge-practice","className":"flex-1 group p-4 rounded-lg border border-[var(--border)] hover:bg-[var(--entry-bg)] transition-colors text-right","children":[["$","div",null,{"className":"flex items-center gap-2 text-xs uppercase tracking-widest text-[var(--secondary-text)] mb-2 justify-end","children":["Next ",["$","svg",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","viewBox":"0 0 24 24","children":["$undefined",[["$","path","0",{"d":"M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z","children":[]}]]],"className":"$undefined","style":{"color":"$undefined"},"height":"1em","width":"1em","xmlns":"http://www.w3.org/2000/svg"}]]}],["$","div",null,{"className":"font-bold group-hover:underline decoration-1 underline-offset-4","children":"Using Code Challenges to Sharpen Skills"}]]}]]}]}]
 d:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
-3d:I[27201,["/_next/static/chunks/0_~1k7uf_r3le.js","/_next/static/chunks/13wwynf001.56.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"IconMark"]
+1b:I[27201,["/_next/static/chunks/0_~1k7uf_r3le.js","/_next/static/chunks/13wwynf001.56.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"IconMark"]
 a:null
-13:[["$","link","0",{"rel":"icon","href":"/favicon.ico?favicon.0x3dzn~oxb6tn.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L3d","1",{}]]
+f:[["$","link","0",{"rel":"icon","href":"/favicon.ico?favicon.0x3dzn~oxb6tn.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1b","1",{}]]
