@@ -1,0 +1,175 @@
+1:"$Sreact.fragment"
+2:I[45508,["/_next/static/chunks/00j9c7fz8jp7u.js","/_next/static/chunks/13wwynf001.56.js","/_next/static/chunks/0t2xr05rlu96l.js","/_next/static/chunks/0qgo22ypb4~cj.js","/_next/static/chunks/0o8o~z2f17~wz.js"],"default"]
+3:I[7335,["/_next/static/chunks/00j9c7fz8jp7u.js","/_next/static/chunks/13wwynf001.56.js","/_next/static/chunks/0t2xr05rlu96l.js","/_next/static/chunks/0qgo22ypb4~cj.js","/_next/static/chunks/0o8o~z2f17~wz.js"],"default"]
+4:I[22016,["/_next/static/chunks/00j9c7fz8jp7u.js","/_next/static/chunks/13wwynf001.56.js","/_next/static/chunks/0t2xr05rlu96l.js","/_next/static/chunks/0qgo22ypb4~cj.js","/_next/static/chunks/0o8o~z2f17~wz.js"],""]
+5:I[46311,["/_next/static/chunks/00j9c7fz8jp7u.js","/_next/static/chunks/13wwynf001.56.js","/_next/static/chunks/0t2xr05rlu96l.js","/_next/static/chunks/0qgo22ypb4~cj.js","/_next/static/chunks/0o8o~z2f17~wz.js"],"default"]
+c:I[9308,["/_next/static/chunks/00j9c7fz8jp7u.js","/_next/static/chunks/13wwynf001.56.js","/_next/static/chunks/0t2xr05rlu96l.js","/_next/static/chunks/0qgo22ypb4~cj.js","/_next/static/chunks/0o8o~z2f17~wz.js"],"default"]
+e:I[97367,["/_next/static/chunks/00j9c7fz8jp7u.js","/_next/static/chunks/13wwynf001.56.js","/_next/static/chunks/0t2xr05rlu96l.js"],"OutletBoundary"]
+f:"$Sreact.suspense"
+6:T14ab,
+***If you'd like to get straight to the code, go here: https://github.com/ndsu-patmcmullen/csci-717-project-weather-llm-poetry***
+
+---
+
+What if your morning weather update didn't just tell you it was 42°F and raining, but instead gave you a kid friendly poem?
+
+That is the core idea behind **Rain or Shine LLM Poetry**, a web application I built to connect real-time weather forecasts to generative AI, delivering custom-crafted poems based on exactly what’s happening outside your window.
+
+Whether you are a developer looking to build your first AI-integrated project or someone who just loves a good mix of art and science, this breakdown shows how the app works, the engineering pivots along the way, and how to build LLM apps in a fun way.
+
+## The Concept: Art Meets Atmosphere
+
+At its heart, the app is simple: you type in your ZIP code, and you get a formatted, kid-friendly poem reflecting your local climate.
+
+But behind that simple interface is a dynamic system that translates real-world physical states into creative written prompts.
+
+The visual above highlights how entirely different a scene feels based on just three factors: **time of day**, **weather conditions**, and **present elements**. The backend code grabs these variables programmatically and feeds them to the LLM to anchor the poem's mood.
+
+## The Pivot: When AI Needs a Reality Check
+
+When I first drew up the blueprint for this app, I planned to let the Gemini LLM handle everything—including fetching the local weather.
+
+But I quickly ran into a classic hurdle in LLM development: **the real-time data barrier.** While Large Language Models are great creative engines, they cannot reliably query live local weather data on their own without external tools.
+
+To solve this, I split the responsibilities. Instead of asking the AI what the weather is, it fetches the concrete data first, structures it, and then hands it to the AI to write the poem.
+
+To make this happen, I orchestrated three different APIs:
+
+| API | Inputs | Outputs | Core Purpose |
+| --- | --- | --- | --- |
+| **Geocoding API** | ZIP Code | Latitude & Longitude | Pinpoints the physical location coordinates. |
+| **Open-Meteo API** | Latitude & Longitude | Current Temp, Wind, Sky Conditions | Retrieves highly accurate, real-time weather data. |
+| **Gemini API** | Dynamically Compiled Prompt | Custom Poem | Generates the creative output based on the weather data. |
+
+## How It Works: The Data Pipeline
+
+1. **Geocoding Lookup:** ZIP to Coordinates.
+The user inputs a ZIP code. The React frontend sends this to the backend Node service, which queries the Geocoding API to translate it into a exact latitude and longitude.
+
+
+2. **Weather Retrieval:** Real-Time Data Fetch.
+Using those coordinates, the app pings Open-Meteo to capture current conditions.
+
+
+3. **Prompt Compilation:** Variables to Text.
+The backend runs the weather data through a custom `PromptGenerator` module. It dynamically constructs a prompt containing the city, time of day, temperature, and sky conditions.
+
+
+4. **LLM Generation:** Gemini Synthesis.
+The compiled prompt is sent to the Gemini API, which processes the context and instantly drafts a customized poem.
+
+
+5. **Caching & Response:** Speed Optimization.
+The poem is saved to the backend's in-memory cache to prevent duplicate API requests, and then rendered on screen.
+
+![](/images/posts/rain-or-shine-llm/poem-gen.png)
+
+## Software Construction: Building It Clean
+
+A cool concept is only as good as the code supporting it. For this project, I focused heavily on core software engineering principles to ensure the application was modular, reliable, and production-ready:
+
+### 1. Test-First Development (TDD)
+Because the prompt generation relies on strict variable placement (making sure city names, temperatures, and times of day map correctly), I adopted a **test-first approach** for the `PromptGenerator` module. By writing unit tests with mock data before writing the code, I guaranteed the prompt structure stayed consistent and error-free. The backend maintains **100% unit test coverage** using mocks for the external APIs.
+
+### 2. Modularity & Dependency Injection
+ I split the codebase into single-responsibility services:
+ * `GeminiLlmService` only knows how to talk to Gemini.
+ * `WeatherService` only knows how to query conditions.
+ *  `GeocodingService` strictly handles ZIP conversions.
+
+
+By using **dependency injection**, these services are cleanly decoupled. This made writing unit tests incredibly easy, as I could mock out the APIs without changing a single line of business logic.
+
+### 3. Immutability & Caching
+
+Data objects like the `WeatherPoem` type are designed to be completely immutable. Once a poem is generated, its state cannot be altered, reducing accidental side-effects as data flows between the backend services and the frontend UI. Coupled with an in-memory cache, this ensures fast, repeatable performance.
+
+## The Takeaway
+
+"Rain or Shine" was a fantastic exercise in balancing creative AI capabilities with proper software engineering. By treating prompt construction like any other critical software module, complete with testing, immutability, and modular design, you can build LLM applications that are not only fun to play with but robust and highly maintainable.0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"prose prose-img:rounded-xl prose-img:border prose-img:border-[var(--border)] dark:prose-invert max-w-none","children":[["$","header",null,{"className":"not-prose mb-8","children":[["$","div",null,{"className":"relative w-full h-[300px] md:h-[400px] mb-8 rounded-lg overflow-hidden bg-[var(--entry-bg)]","children":["$","$L2",null,{"src":"images/posts/rain-or-shine-llm/hero.png","alt":"Rain or Shine LLM Poetry App","fill":true,"priority":true,"className":"object-cover transition-transform duration-500 hover:scale-102","sizes":"(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"}]}],["$","$L3",null,{}],["$","h1",null,{"className":"text-4xl font-bold mb-2 tracking-tight","children":"Rain or Shine LLM Poetry App"}],["$","div",null,{"className":"flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-[var(--secondary-text)] font-mono","children":[["$","time",null,{"dateTime":"2025-01-02","children":"2025-01-02"}],["$","div",null,{"className":"flex flex-wrap gap-2","children":[["$","span",null,{"className":"opacity-40","children":"|"}],[["$","$L4","Llm",{"href":"/tags/Llm","className":"hover:text-[var(--text-color)] transition-colors before:content-['#'] before:opacity-50","children":"Llm"}],["$","$L4","Typescript",{"href":"/tags/Typescript","className":"hover:text-[var(--text-color)] transition-colors before:content-['#'] before:opacity-50","children":"Typescript"}],["$","$L4","React",{"href":"/tags/React","className":"hover:text-[var(--text-color)] transition-colors before:content-['#'] before:opacity-50","children":"React"}],["$","$L4","Poetry",{"href":"/tags/Poetry","className":"hover:text-[var(--text-color)] transition-colors before:content-['#'] before:opacity-50","children":"Poetry"}]]]}]]}]]}],["$","$L5",null,{"content":"$6"}],"$L7","$L8"]}],["$L9","$La"],"$Lb"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"pxhuqeNDtYePGZMDE6ULL"}
+d:T14ab,
+***If you'd like to get straight to the code, go here: https://github.com/ndsu-patmcmullen/csci-717-project-weather-llm-poetry***
+
+---
+
+What if your morning weather update didn't just tell you it was 42°F and raining, but instead gave you a kid friendly poem?
+
+That is the core idea behind **Rain or Shine LLM Poetry**, a web application I built to connect real-time weather forecasts to generative AI, delivering custom-crafted poems based on exactly what’s happening outside your window.
+
+Whether you are a developer looking to build your first AI-integrated project or someone who just loves a good mix of art and science, this breakdown shows how the app works, the engineering pivots along the way, and how to build LLM apps in a fun way.
+
+## The Concept: Art Meets Atmosphere
+
+At its heart, the app is simple: you type in your ZIP code, and you get a formatted, kid-friendly poem reflecting your local climate.
+
+But behind that simple interface is a dynamic system that translates real-world physical states into creative written prompts.
+
+The visual above highlights how entirely different a scene feels based on just three factors: **time of day**, **weather conditions**, and **present elements**. The backend code grabs these variables programmatically and feeds them to the LLM to anchor the poem's mood.
+
+## The Pivot: When AI Needs a Reality Check
+
+When I first drew up the blueprint for this app, I planned to let the Gemini LLM handle everything—including fetching the local weather.
+
+But I quickly ran into a classic hurdle in LLM development: **the real-time data barrier.** While Large Language Models are great creative engines, they cannot reliably query live local weather data on their own without external tools.
+
+To solve this, I split the responsibilities. Instead of asking the AI what the weather is, it fetches the concrete data first, structures it, and then hands it to the AI to write the poem.
+
+To make this happen, I orchestrated three different APIs:
+
+| API | Inputs | Outputs | Core Purpose |
+| --- | --- | --- | --- |
+| **Geocoding API** | ZIP Code | Latitude & Longitude | Pinpoints the physical location coordinates. |
+| **Open-Meteo API** | Latitude & Longitude | Current Temp, Wind, Sky Conditions | Retrieves highly accurate, real-time weather data. |
+| **Gemini API** | Dynamically Compiled Prompt | Custom Poem | Generates the creative output based on the weather data. |
+
+## How It Works: The Data Pipeline
+
+1. **Geocoding Lookup:** ZIP to Coordinates.
+The user inputs a ZIP code. The React frontend sends this to the backend Node service, which queries the Geocoding API to translate it into a exact latitude and longitude.
+
+
+2. **Weather Retrieval:** Real-Time Data Fetch.
+Using those coordinates, the app pings Open-Meteo to capture current conditions.
+
+
+3. **Prompt Compilation:** Variables to Text.
+The backend runs the weather data through a custom `PromptGenerator` module. It dynamically constructs a prompt containing the city, time of day, temperature, and sky conditions.
+
+
+4. **LLM Generation:** Gemini Synthesis.
+The compiled prompt is sent to the Gemini API, which processes the context and instantly drafts a customized poem.
+
+
+5. **Caching & Response:** Speed Optimization.
+The poem is saved to the backend's in-memory cache to prevent duplicate API requests, and then rendered on screen.
+
+![](/images/posts/rain-or-shine-llm/poem-gen.png)
+
+## Software Construction: Building It Clean
+
+A cool concept is only as good as the code supporting it. For this project, I focused heavily on core software engineering principles to ensure the application was modular, reliable, and production-ready:
+
+### 1. Test-First Development (TDD)
+Because the prompt generation relies on strict variable placement (making sure city names, temperatures, and times of day map correctly), I adopted a **test-first approach** for the `PromptGenerator` module. By writing unit tests with mock data before writing the code, I guaranteed the prompt structure stayed consistent and error-free. The backend maintains **100% unit test coverage** using mocks for the external APIs.
+
+### 2. Modularity & Dependency Injection
+ I split the codebase into single-responsibility services:
+ * `GeminiLlmService` only knows how to talk to Gemini.
+ * `WeatherService` only knows how to query conditions.
+ *  `GeocodingService` strictly handles ZIP conversions.
+
+
+By using **dependency injection**, these services are cleanly decoupled. This made writing unit tests incredibly easy, as I could mock out the APIs without changing a single line of business logic.
+
+### 3. Immutability & Caching
+
+Data objects like the `WeatherPoem` type are designed to be completely immutable. Once a poem is generated, its state cannot be altered, reducing accidental side-effects as data flows between the backend services and the frontend UI. Coupled with an in-memory cache, this ensures fast, repeatable performance.
+
+## The Takeaway
+
+"Rain or Shine" was a fantastic exercise in balancing creative AI capabilities with proper software engineering. By treating prompt construction like any other critical software module, complete with testing, immutability, and modular design, you can build LLM applications that are not only fun to play with but robust and highly maintainable.7:["$","$Lc",null,{"content":"$d"}]
+8:["$","footer",null,{"children":["$","nav",null,{"className":"flex flex-col sm:flex-row justify-between gap-4 mt-16 pt-8 border-t border-[var(--border)]","children":[["$","$L4",null,{"href":"/posts/extreme-programming-most-and-least-used-practices","className":"flex-1 group p-4 rounded-lg border border-[var(--border)] hover:bg-[var(--entry-bg)] transition-colors text-left","children":[["$","div",null,{"className":"flex items-center gap-2 text-xs uppercase tracking-widest text-[var(--secondary-text)] mb-2","children":[["$","svg",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","viewBox":"0 0 24 24","children":["$undefined",[["$","path","0",{"d":"M7.82843 10.9999H20V12.9999H7.82843L13.1924 18.3638L11.7782 19.778L4 11.9999L11.7782 4.22168L13.1924 5.63589L7.82843 10.9999Z","children":[]}]]],"style":{},"height":"1em","width":"1em","xmlns":"http://www.w3.org/2000/svg"}]," Previous"]}],["$","div",null,{"className":"font-bold group-hover:underline decoration-1 underline-offset-4","children":"Extreme Programming - Most and Least Used Practices"}]]}],["$","$L4",null,{"href":"/posts/libby-ebook-drain","className":"flex-1 group p-4 rounded-lg border border-[var(--border)] hover:bg-[var(--entry-bg)] transition-colors text-right","children":[["$","div",null,{"className":"flex items-center gap-2 text-xs uppercase tracking-widest text-[var(--secondary-text)] mb-2 justify-end","children":["Next ",["$","svg",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","viewBox":"0 0 24 24","children":["$undefined",[["$","path","0",{"d":"M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z","children":[]}]]],"style":{},"height":"1em","width":"1em","xmlns":"http://www.w3.org/2000/svg"}]]}],["$","div",null,{"className":"font-bold group-hover:underline decoration-1 underline-offset-4","children":"The Cost of Libby on Local Libraries"}]]}]]}]}]
+9:["$","script","script-0",{"src":"/_next/static/chunks/0qgo22ypb4~cj.js","async":true}]
+a:["$","script","script-1",{"src":"/_next/static/chunks/0o8o~z2f17~wz.js","async":true}]
+b:["$","$Le",null,{"children":["$","$f",null,{"name":"Next.MetadataOutlet","children":"$@10"}]}]
+10:null
