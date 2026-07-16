@@ -1,0 +1,194 @@
+1:"$Sreact.fragment"
+2:I[7335,["/_next/static/chunks/00j9c7fz8jp7u.js","/_next/static/chunks/13wwynf001.56.js","/_next/static/chunks/0t2xr05rlu96l.js","/_next/static/chunks/0qgo22ypb4~cj.js","/_next/static/chunks/0o8o~z2f17~wz.js"],"default"]
+3:I[22016,["/_next/static/chunks/00j9c7fz8jp7u.js","/_next/static/chunks/13wwynf001.56.js","/_next/static/chunks/0t2xr05rlu96l.js","/_next/static/chunks/0qgo22ypb4~cj.js","/_next/static/chunks/0o8o~z2f17~wz.js"],""]
+4:I[46311,["/_next/static/chunks/00j9c7fz8jp7u.js","/_next/static/chunks/13wwynf001.56.js","/_next/static/chunks/0t2xr05rlu96l.js","/_next/static/chunks/0qgo22ypb4~cj.js","/_next/static/chunks/0o8o~z2f17~wz.js"],"default"]
+b:I[9308,["/_next/static/chunks/00j9c7fz8jp7u.js","/_next/static/chunks/13wwynf001.56.js","/_next/static/chunks/0t2xr05rlu96l.js","/_next/static/chunks/0qgo22ypb4~cj.js","/_next/static/chunks/0o8o~z2f17~wz.js"],"default"]
+d:I[97367,["/_next/static/chunks/00j9c7fz8jp7u.js","/_next/static/chunks/13wwynf001.56.js","/_next/static/chunks/0t2xr05rlu96l.js"],"OutletBoundary"]
+e:"$Sreact.suspense"
+5:T13d9,
+***If you want to jump straight to the local integration branch, check out the repository here: [https://github.com/ndsu-patmcmullen/csci-717-project-weather-llm-poetry/pull/3***](https://github.com/ndsu-patmcmullen/csci-717-project-weather-llm-poetry/pull/3)
+
+In my last post, we built [Rain or Shine](/posts/rain-or-shine-llm/), an all ages weather forecasting poet. It worked great, but it relied on a cloud-hosted API (Gemini) to generate the poetry.
+
+While cloud APIs are incredibly convenient, they come with a few trade-offs: API keys, potential costs, and rate limits.
+
+With the latest changes, Rain or Shine's poet will be fully local using **LM Studio** and a highly capable open-weights model running right on a laptop.
+
+## Why Go Local?
+
+Swapping to a local LLM can be cost effective while meeting all of your applications needs. Here is how the local workflow stacks up against the cloud:
+
+| Feature | Cloud LLM (Gemini) | Local LLM (LM Studio) |
+| --- | --- | --- |
+| **Cost** | Pay-per-token (or free tier limits) | **100% Free** |
+| **Privacy** | Data sent to external servers | **Local execution** (data never leaves your machine) |
+| **Internet** | Required | **Completely Offline** |
+| **Setup** | API Key configuration | One-click app download |
+
+## The Engine: Picking a Local Model
+
+To run an LLM locally on regular consumer hardware (like a MacBook), we use **quantized** models. Quantization shrinks the model size so it fits neatly into your system memory (RAM/VRAM) without losing much intelligence.
+
+For this project, I used **`google/gemma-4-e2b`** at a **6-bit quantization** (which runs around **5.15 GB**).
+
+* It is small enough to run fast on Apple Silicon.
+* It is smart enough to easily follow creative instructions and maintain a poetic tone.
+
+> **Note for lighter setups:** If you are running on an older machine or just want faster speeds, you can use even smaller models. Options like **Qwen 2.5 1.5B** or **Llama 3 1B / 3B** are tiny, use very little RAM, and still write well.
+
+## Setting Up LM Studio (The UI Way)
+
+This really is a matter of preference, but for most cases **LM Studio** makes setting up local LLMs with full features really simple.
+
+Here is exactly how to set it up:
+
+1. **Download the App:** Go to [lmstudio.ai](https://lmstudio.ai) and install the desktop app.
+2. **Search for the Model:** Click the **Magnifying Glass (Search)** icon on the left sidebar. Search for `gemma-4` (or your model of choice) and download a quantized version (like Q6_K or Q4_K_M).
+3. **Open the Local Server Tab:** Click the **double-headed arrow / server rack** icon on the left navigation bar to open the "Local Server" tab.
+4. **Load the Model:** In the top dropdown, select the model you just downloaded. It will load directly into your computer's memory.
+5. **Start the Server:** Click the green **Start Server** button.
+
+By default, LM Studio will spin up a local server on `http://localhost:1234`. It exposes an **OpenAI-compatible endpoint**, meaning its the same format as standard cloud APIs.
+
+![Cool to see the "thinking" in the logs and the final poem](/images/posts/local-llm-for-rain-or-shine/logs.png)
+
+## Code Cleanliness Pays Off: The Swap
+
+Because of how the initial codebase was structured, it was simple to expand with a new service
+
+In the first post, we discussed **Dependency Injection** and interfaces. To make adding additional LLM services easier, a new `LlmService` interface was created.
+
+```typescript
+export interface LlmService {
+  generatePoem(prompt: string): Promise<string>;
+}
+```
+
+Then all that was needed was to create a new implementation called `LocalLlmService` and swap it in.
+
+The core weather services, geocoding logic, and frontend components didn't require any changes. They just talk to the interface, completely unaware of whether the poet behind it is in the cloud or within your own machine!
+
+### A Clever Trick: Dynamic Model Detection
+
+Instead of hardcoding the model name in the TypeScript code, `LocalLlmService` dynamically queries the local server first:
+
+```typescript
+private async getActiveModel(): Promise<string> {
+  try {
+    const response = await fetch(`${this.baseUrl}/v1/models`);
+    if (!response.ok) throw new Error('Local model registry unreachable');
+
+    const data = await response.json();
+    return data.data[0]?.id || 'local-model';
+  } catch (error) {
+    // If the server is up but empty, or offline, we fallback gracefully
+    return 'local-model';
+  }
+}
+
+```
+
+This means you can swap models inside the LM Studio UI on the fly and the Node backend automatically adjusts to target the currently loaded model without needing a restart.
+
+## Wrap-Up
+
+Running your AI stacks locally is really simple. With tools like LM Studio and highly optimized small language models, you can build robust, private, and fast AI integrations right on your local developer environments.
+
+Maybe in the future this could all be hosted on a server and I could dockerize a setup that installs Ollama and downloads a model from Huggingface, but for now I think this does a pretty good job!
+0:{"rsc":["$","$1","c",{"children":[["$","article",null,{"className":"prose prose-img:rounded-xl prose-img:border prose-img:border-[var(--border)] dark:prose-invert max-w-none","children":[["$","header",null,{"className":"not-prose mb-8","children":["$undefined",["$","$L2",null,{}],["$","h1",null,{"className":"text-4xl font-bold mb-2 tracking-tight","children":"Local LLMs for Rain or Shine LLM Poetry App"}],["$","div",null,{"className":"flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-[var(--secondary-text)] font-mono","children":[["$","time",null,{"dateTime":"2026-07-15","children":"2026-07-15"}],["$","div",null,{"className":"flex flex-wrap gap-2","children":[["$","span",null,{"className":"opacity-40","children":"|"}],[["$","$L3","Llm",{"href":"/tags/Llm","className":"hover:text-[var(--text-color)] transition-colors before:content-['#'] before:opacity-50","children":"Llm"}],["$","$L3","Typescript",{"href":"/tags/Typescript","className":"hover:text-[var(--text-color)] transition-colors before:content-['#'] before:opacity-50","children":"Typescript"}],["$","$L3","React",{"href":"/tags/React","className":"hover:text-[var(--text-color)] transition-colors before:content-['#'] before:opacity-50","children":"React"}],["$","$L3","LocalAI",{"href":"/tags/LocalAI","className":"hover:text-[var(--text-color)] transition-colors before:content-['#'] before:opacity-50","children":"LocalAI"}],["$","$L3","LMStudio",{"href":"/tags/LMStudio","className":"hover:text-[var(--text-color)] transition-colors before:content-['#'] before:opacity-50","children":"LMStudio"}]]]}]]}]]}],["$","$L4",null,{"content":"$5"}],"$L6","$L7"]}],["$L8","$L9"],"$La"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"DZUWWG6K0GncLKD7A1_SO"}
+c:T13d9,
+***If you want to jump straight to the local integration branch, check out the repository here: [https://github.com/ndsu-patmcmullen/csci-717-project-weather-llm-poetry/pull/3***](https://github.com/ndsu-patmcmullen/csci-717-project-weather-llm-poetry/pull/3)
+
+In my last post, we built [Rain or Shine](/posts/rain-or-shine-llm/), an all ages weather forecasting poet. It worked great, but it relied on a cloud-hosted API (Gemini) to generate the poetry.
+
+While cloud APIs are incredibly convenient, they come with a few trade-offs: API keys, potential costs, and rate limits.
+
+With the latest changes, Rain or Shine's poet will be fully local using **LM Studio** and a highly capable open-weights model running right on a laptop.
+
+## Why Go Local?
+
+Swapping to a local LLM can be cost effective while meeting all of your applications needs. Here is how the local workflow stacks up against the cloud:
+
+| Feature | Cloud LLM (Gemini) | Local LLM (LM Studio) |
+| --- | --- | --- |
+| **Cost** | Pay-per-token (or free tier limits) | **100% Free** |
+| **Privacy** | Data sent to external servers | **Local execution** (data never leaves your machine) |
+| **Internet** | Required | **Completely Offline** |
+| **Setup** | API Key configuration | One-click app download |
+
+## The Engine: Picking a Local Model
+
+To run an LLM locally on regular consumer hardware (like a MacBook), we use **quantized** models. Quantization shrinks the model size so it fits neatly into your system memory (RAM/VRAM) without losing much intelligence.
+
+For this project, I used **`google/gemma-4-e2b`** at a **6-bit quantization** (which runs around **5.15 GB**).
+
+* It is small enough to run fast on Apple Silicon.
+* It is smart enough to easily follow creative instructions and maintain a poetic tone.
+
+> **Note for lighter setups:** If you are running on an older machine or just want faster speeds, you can use even smaller models. Options like **Qwen 2.5 1.5B** or **Llama 3 1B / 3B** are tiny, use very little RAM, and still write well.
+
+## Setting Up LM Studio (The UI Way)
+
+This really is a matter of preference, but for most cases **LM Studio** makes setting up local LLMs with full features really simple.
+
+Here is exactly how to set it up:
+
+1. **Download the App:** Go to [lmstudio.ai](https://lmstudio.ai) and install the desktop app.
+2. **Search for the Model:** Click the **Magnifying Glass (Search)** icon on the left sidebar. Search for `gemma-4` (or your model of choice) and download a quantized version (like Q6_K or Q4_K_M).
+3. **Open the Local Server Tab:** Click the **double-headed arrow / server rack** icon on the left navigation bar to open the "Local Server" tab.
+4. **Load the Model:** In the top dropdown, select the model you just downloaded. It will load directly into your computer's memory.
+5. **Start the Server:** Click the green **Start Server** button.
+
+By default, LM Studio will spin up a local server on `http://localhost:1234`. It exposes an **OpenAI-compatible endpoint**, meaning its the same format as standard cloud APIs.
+
+![Cool to see the "thinking" in the logs and the final poem](/images/posts/local-llm-for-rain-or-shine/logs.png)
+
+## Code Cleanliness Pays Off: The Swap
+
+Because of how the initial codebase was structured, it was simple to expand with a new service
+
+In the first post, we discussed **Dependency Injection** and interfaces. To make adding additional LLM services easier, a new `LlmService` interface was created.
+
+```typescript
+export interface LlmService {
+  generatePoem(prompt: string): Promise<string>;
+}
+```
+
+Then all that was needed was to create a new implementation called `LocalLlmService` and swap it in.
+
+The core weather services, geocoding logic, and frontend components didn't require any changes. They just talk to the interface, completely unaware of whether the poet behind it is in the cloud or within your own machine!
+
+### A Clever Trick: Dynamic Model Detection
+
+Instead of hardcoding the model name in the TypeScript code, `LocalLlmService` dynamically queries the local server first:
+
+```typescript
+private async getActiveModel(): Promise<string> {
+  try {
+    const response = await fetch(`${this.baseUrl}/v1/models`);
+    if (!response.ok) throw new Error('Local model registry unreachable');
+
+    const data = await response.json();
+    return data.data[0]?.id || 'local-model';
+  } catch (error) {
+    // If the server is up but empty, or offline, we fallback gracefully
+    return 'local-model';
+  }
+}
+
+```
+
+This means you can swap models inside the LM Studio UI on the fly and the Node backend automatically adjusts to target the currently loaded model without needing a restart.
+
+## Wrap-Up
+
+Running your AI stacks locally is really simple. With tools like LM Studio and highly optimized small language models, you can build robust, private, and fast AI integrations right on your local developer environments.
+
+Maybe in the future this could all be hosted on a server and I could dockerize a setup that installs Ollama and downloads a model from Huggingface, but for now I think this does a pretty good job!
+6:["$","$Lb",null,{"content":"$c"}]
+7:["$","footer",null,{"children":["$","nav",null,{"className":"flex flex-col sm:flex-row justify-between gap-4 mt-16 pt-8 border-t border-[var(--border)]","children":[["$","$L3",null,{"href":"/posts/libby-ebook-drain","className":"flex-1 group p-4 rounded-lg border border-[var(--border)] hover:bg-[var(--entry-bg)] transition-colors text-left","children":[["$","div",null,{"className":"flex items-center gap-2 text-xs uppercase tracking-widest text-[var(--secondary-text)] mb-2","children":[["$","svg",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","viewBox":"0 0 24 24","children":["$undefined",[["$","path","0",{"d":"M7.82843 10.9999H20V12.9999H7.82843L13.1924 18.3638L11.7782 19.778L4 11.9999L11.7782 4.22168L13.1924 5.63589L7.82843 10.9999Z","children":[]}]]],"style":{},"height":"1em","width":"1em","xmlns":"http://www.w3.org/2000/svg"}]," Previous"]}],["$","div",null,{"className":"font-bold group-hover:underline decoration-1 underline-offset-4","children":"The Cost of Libby on Local Libraries"}]]}],["$","div",null,{"className":"flex-1"}]]}]}]
+8:["$","script","script-0",{"src":"/_next/static/chunks/0qgo22ypb4~cj.js","async":true}]
+9:["$","script","script-1",{"src":"/_next/static/chunks/0o8o~z2f17~wz.js","async":true}]
+a:["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]
+f:null
