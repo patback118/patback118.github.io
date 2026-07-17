@@ -1,2 +1,0 @@
-:HL["/_next/static/chunks/0ru-ak4bvpazc.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"tags","param":null,"prefetchHints":0,"slots":{"children":{"name":"tag","param":{"type":"d","key":"Civics","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"qRGmg4K-YTO1L2oDL5siz"}
