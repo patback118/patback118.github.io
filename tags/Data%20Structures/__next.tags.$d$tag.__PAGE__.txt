@@ -1,5 +1,5 @@
 1:"$Sreact.fragment"
 2:I[97367,["/_next/static/chunks/00j9c7fz8jp7u.js","/_next/static/chunks/13wwynf001.56.js","/_next/static/chunks/0t2xr05rlu96l.js"],"OutletBoundary"]
 3:"$Sreact.suspense"
-0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"children":[["$","header",null,{"className":"mb-10","children":[["$","h1",null,{"className":"text-3xl font-bold","children":["Tag: ","Data%20Structures"]}],["$","p",null,{"className":"text-[var(--secondary-text)] mt-2","children":[0," ","posts"," tagged with this topic."]}]]}],["$","div",null,{"className":"space-y-8","children":[]}]]}],null,["$","$L2",null,{"children":["$","$3",null,{"name":"Next.MetadataOutlet","children":"$@4"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"AzS6cr9FsQFOGuq9K6q82"}
+0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"children":[["$","header",null,{"className":"mb-10","children":[["$","h1",null,{"className":"text-3xl font-bold","children":["Tag: ","Data%20Structures"]}],["$","p",null,{"className":"text-[var(--secondary-text)] mt-2","children":[0," ","posts"," tagged with this topic."]}]]}],["$","div",null,{"className":"space-y-8","children":[]}]]}],null,["$","$L2",null,{"children":["$","$3",null,{"name":"Next.MetadataOutlet","children":"$@4"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"VQz14y6_2fRPQqm-KFbZd"}
 4:null
